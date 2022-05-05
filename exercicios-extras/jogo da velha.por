@@ -11,10 +11,12 @@ programa
 		para(inteiro i=0; i < 1; i++)
 		{
 				escreva("Player1, escolha as cordenadas que deseja colocar o X\n")
-				escreva("  0 | 1 | 2\n")
+				escreva("  0 | 1 | 2 Y\n")
 				escreva("0 ",Jogo[0][0]," | ", Jogo[0][1]," | ", Jogo[0][2],"\n")
 				escreva("1 ",Jogo[1][0]," | ", Jogo[1][1]," | ", Jogo[1][2],"\n")
 				escreva("2 ",Jogo[2][0]," | ", Jogo[2][1]," | ", Jogo[2][2],"\n")
+				escreva("X\n")
+				escreva("escreva primero o X e depois o Y")
 				leia(P1X, P1Y)
 				Jogo[P1X][P1Y] = "X"
 				
@@ -58,10 +60,12 @@ programa
 		{
 
 				escreva("Player2, escolha as cordenadas que deseja colocar o O\n")
-				escreva("  0 | 1 | 2\n")
+				escreva("  0 | 1 | 2 Y\n")
 				escreva("0 ",Jogo[0][0]," | ", Jogo[0][1]," | ", Jogo[0][2],"\n")
 				escreva("1 ",Jogo[1][0]," | ", Jogo[1][1]," | ", Jogo[1][2],"\n")
 				escreva("2 ",Jogo[2][0]," | ", Jogo[2][1]," | ", Jogo[2][2],"\n")
+				escreva("X\n")
+				escreva("escreva primero o X e depois o Y")
 				leia(P2X, P2Y)
 				Jogo[P2X][P2Y] = "O"
 				
@@ -110,7 +114,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10; 
+ * @POSICAO-CURSOR = 1629; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
