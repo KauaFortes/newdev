@@ -1,0 +1,24 @@
+* {
+  margin: 0%;
+}
+body {
+  background-image: url(https://img.freepik.com/vetores-gratis/preto-escuro-3d-baixo-poli-fundo-geometrico_79145-393.jpg);
+}
+h1 {
+  margin: auto;
+  border: 1px double white;
+  padding: 1px;
+  height: 50px;
+  width: 200px;
+  background-color: rgb(99, 97, 97);
+}
+button {
+  color: rgb(15, 100, 4);
+}
+#caqui {
+  color: rgb(4, 6, 100);
+  background-color: black; /*esse é mais inportante que aclas*/
+}
+.lacucaratia {
+  color: rgb(15, 100, 4);
+}

@@ -1,4 +1,4 @@
-programa
+
 {
 	const inteiro  quant=200
 	inteiro opcao, posicao=0, repeticao, relatorio[3][quant],  
