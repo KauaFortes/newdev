@@ -43,11 +43,10 @@ h1 {
 .itens {
   width: 32.7rem;
   height: 47rem;
-  position: absolute;
   margin-right: auto;
   margin-left: auto;
-  background-color: #FFFAF1;
-  border: 1px solid #A7AEAA;
+  background-color: #fffaf1;
+  border: 1px solid #a7aeaa;
   border-radius: 6px;
   box-sizing: border-box;
 }
