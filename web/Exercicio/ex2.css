@@ -3,12 +3,6 @@
   box-sizing: border-box;
 }
 :root {
-  --p-color: #ffa5a5;
-  --s-color: #bdbbbb;
-  --t-color: #128d0f;
-  --q-color: #043c2e;
-  --c-color: #ff0000;
-
   font-size: 62.5%;
 }
 
@@ -22,17 +16,17 @@ html,
 body {
   height: 100%;
 }
-.img {
-position: absolute;
-width: .5rem;
-height: 4.8rem;
-}
-.audio {
-  margin-top: auto;
-}
-.audio,
-.img {
+.container {
+  width: 37.5rem;
+  height: 41.8rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  background-image: url(https://toppng.com/public/uploads/preview/toyota-supra-toyota-sportscar-red-rear-view-dark-backlight-11570037724nmzk1wbuci.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+audio {
+  width: 100%;
 }

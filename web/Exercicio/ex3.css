@@ -23,71 +23,93 @@ body {
   height: 100%;
 }
 .fundo {
-box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  position: absolute;
+  width: 44.7rem;
+  height: 62.9rem;
 
-position: absolute;
-width: 447px;
-height: 629px;
+  background: rgb(223, 223, 223);
+  border: 2px solid #059700;
+}
 
-background: var(--s-color);
-border: 1px solid #0720FD;
+.titulo {
+  font-family: 'Jura';
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+
+  color: #000000;
+}
+.enunciado {
+  font-family: 'Jura', sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  text-align: center;
 }
 .botao-1 {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 16px 38px 16px 32px;
-gap: 16px;
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid #8d0000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 3.8rem 1.6rem 3.2rem;
+  gap: 1.6rem;
 
-position: relative;
-width: 170px;
-height: 50px;
+  position: relative;
+  width: 17rem;
+  height: 5rem;
 
-background: #8D0000;
-border-radius: 80px;
+  color: #8d0000;
+  border-radius: 8rem;
+
 }
 .botao-2 {
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 16px 38px 16px 32px;
-gap: 16px;
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid #00856f;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 3.8rem 1.6rem 3.2rem;
+  gap: 1.6rem;
 
-position: relative;
-width: 170px;
-height: 50px;
-background: #00856F;
-border-radius: 80px;
+  position: relative;
+  width: 17rem;
+  height: 5rem;
+  margin-left: 3rem;
+
+  color: #00856f;
+  border-radius: 8rem;
 }
-h3 {
- 
+.frasefinal {
+  font-family: 'Jura';
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  text-align: center;
 
-
-font-family: 'Jura';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 28px;
-
-color: #000000;
+  color: #000000;
 }
-p {
-
-
-
-font-family: 'Jura';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 28px;
-text-align: center;
-
-color: #000000;
-}
-h3, p {
+h1,
+p,
+.botoes {
+  margin-inline: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.botao-2:hover {
+  color: white;
+  background-color: #00856f;
+  cursor: pointer;
+}
+.botao-1:hover {
+  color: white;
+  background-color: #8d0000;
+  cursor: pointer;
 }

@@ -1,0 +1,42 @@
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+.segundo {
+  width: 60.0rem;
+  height: 62.9rem;
+  background: rgba(45, 49, 51, 0.81);
+  border: 2px solid #059700;
+  align-items: center;
+}
+.video {
+  width: 54.9rem;
+  height: 28.1rem;
+  margin-inline: auto;
+}
+
+.volta {
+  width: 51px;
+  height: 17px;
+  font-family: 'Jura';
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}

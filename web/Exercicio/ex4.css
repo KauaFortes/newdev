@@ -1,0 +1,84 @@
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+.primeira {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  position: absolute;
+  width: 60.0rem;
+  height: 62.9rem;
+  background: rgba(45, 49, 51, 0.81);
+  border: 2px solid #059700;
+  display: flex;
+  align-items: center;
+}
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  font-family: 'DM Sans', sans-serif;
+  border: 1px solid #00856f;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem 3.8rem 1.6rem 3.2rem;
+  gap: 1.6rem;
+
+  position: relative;
+  width: 17rem;
+  height: 5rem;
+
+  color: #00856f;
+  border-radius: 8rem;
+}
+button:hover {
+  color: white;
+  background-color: #00856f;
+  cursor: pointer;
+}
+.titulo {
+  font-family: 'Jura';
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+
+  color: white;
+}
+.texto {
+
+font-family: 'DM Sans';
+font-weight: 400;
+font-size: 1.4rem;
+line-height: 1.8rem;
+text-align: center;
+
+color: white;
+}
+.imagem {
+  width: 54.9rem;
+  height: 28.1rem;
+  background-image: url(https://images7.alphacoders.com/447/thumb-1920-447698.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
