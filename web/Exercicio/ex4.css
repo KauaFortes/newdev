@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.6rem;
+  background-color: rgba(45, 49, 51, 0.81);
 }
 
 html,
@@ -24,17 +25,15 @@ body {
   justify-content: space-around;
   box-sizing: border-box;
   position: absolute;
-  width: 60.0rem;
+  width: 60rem;
   height: 62.9rem;
   background: rgba(45, 49, 51, 0.81);
   border: 2px solid #059700;
   display: flex;
   align-items: center;
+  border-radius: 3rem 3rem 3rem 3rem;
 }
 button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-inline: auto;
   font-family: 'DM Sans', sans-serif;
   border: 1px solid #00856f;
@@ -66,14 +65,13 @@ button:hover {
   color: white;
 }
 .texto {
+  font-family: 'Jura';
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  text-align: center;
 
-font-family: 'DM Sans';
-font-weight: 400;
-font-size: 1.4rem;
-line-height: 1.8rem;
-text-align: center;
-
-color: white;
+  color: white;
 }
 .imagem {
   width: 54.9rem;
@@ -81,4 +79,8 @@ color: white;
   background-image: url(https://images7.alphacoders.com/447/thumb-1920-447698.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 3rem 3rem 3rem 3rem;
+}
+a {
+  text-decoration: none;
 }

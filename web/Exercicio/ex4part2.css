@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.6rem;
+  background-color: rgba(45, 49, 51, 0.81);
 }
 
 html,
@@ -19,16 +20,19 @@ body {
   height: 100%;
 }
 .segundo {
-  width: 60.0rem;
+  width: 60rem;
   height: 62.9rem;
   background: rgba(45, 49, 51, 0.81);
   border: 2px solid #059700;
   align-items: center;
+  border-radius: 3rem 3rem 3rem 3rem;
 }
 .video {
   width: 54.9rem;
   height: 28.1rem;
-  margin-inline: auto;
+  margin-top: 5rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .volta {
@@ -38,5 +42,15 @@ body {
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF;
+  color: #ffffff;
+  margin-left: 1.2rem;
+  margin-top: 1.2rem;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: green
+}
+
