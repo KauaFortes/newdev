@@ -1,0 +1,121 @@
+* {
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+.caixa-1 {
+  background-image: url('assents/backgroud.svg');
+  width: 99.5rem;
+  height: 99.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-repeat: no-repeat;
+}
+
+.caixa-2 {
+  position: absolute;
+}
+
+.back {
+  mix-blend-mode: lighten;
+  width: 995px;
+  height: 293px;
+}
+.titulo {
+  width: 21.1rem;
+  height: 5.4rem;
+
+  font-family: 'Offside', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+.Aloja {
+  width: 34.4rem;
+  height: 7.1rem;
+
+  font-family: 'Offside', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  mix-blend-mode: screen;
+}
+.aproveite {
+  width: 763px;
+  height: 51px;
+
+  font-family: 'Jura';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
+h3,
+h1,
+p {
+  color: #12ff02;
+}
+.img1 {
+  width: '22.7rem';
+  height: '24rem';
+}
+.img2 {
+  width: '29.697rem';
+  height: '24.829rem';
+}
+.img3 {
+  width: '34.6rem';
+  height: '22.9rem';
+}
+.img1,
+.img2,
+.img3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.aqui {
+  width: 80.4rem;
+  height: 6.5rem;
+
+  font-family: 'Offside', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+}
