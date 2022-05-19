@@ -11,6 +11,9 @@ body {
   background-color: rgb(90, 86, 71);
   font-family: 'Russo One', sans-serif;
   font-size: 1.6rem;
+  background-image: url(https://images.unsplash.com/photo-1519817914152-22d216bb9170?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 html,
@@ -29,6 +32,7 @@ header {
 header, main, footer {
   width: 80%;
   margin: 0% auto;
+  background-color: rgb(90, 86, 71);
 }
 
 main {
@@ -54,13 +58,13 @@ main section:first-child {
 
 }
 
-ul {
+header ul {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
 
-li {
+header li {
   margin-right: 4rem;
 }
 
@@ -92,4 +96,57 @@ footer {
 }
 .social i:hover {
   color: #E8C456;
+}
+
+.fa-arrow-up-long {
+  color: black;
+}
+
+.fa-arrow-up-long:hover{
+  color: #E8C456;
+}
+
+.social a{
+  text-decoration: inherit;
+  color: inherit;
+}
+
+.direct {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.botoes button {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  padding: 1rem;
+  border-radius: 3rem;
+  color:black;
+  background-color: rgb(90, 86, 71);
+  cursor: pointer;
+  border-color: 1rem black;
+}
+
+.botoes button:hover{
+  background-color: #E8C456;
+  color: black;
+  border:rgb(90, 86, 71);
+}
+
+.motores {
+background-color: rgb(63, 58, 42);
+margin-bottom: 2rem;
+padding: 2rem;
+}
+
+.motores h2, ul {
+  color: #E8C456;
+}
+
+.motores ul {
+  list-style-type: none;
+}
+
+.motores ul li {
+  margin-top: 1.5rem;
 }
