@@ -29,7 +29,9 @@ header {
   padding-bottom: 1.5rem;
 }
 
-header, main, footer {
+header,
+main,
+footer {
   width: 80%;
   margin: 0% auto;
   background-color: rgb(90, 86, 71);
@@ -55,7 +57,6 @@ main section:first-child {
   align-items: center;
   flex-direction: column;
   padding-inline: 2rem;
-
 }
 
 header ul {
@@ -73,14 +74,13 @@ a {
 }
 
 header h3 {
-  color: #E8C456;
+  color: #e8c456;
 }
 
 header h3:hover {
-  color: #E8C456;
+  color: #e8c456;
   font-size: 2rem;
-  box-shadow: 2px 2px #E3CF4D;
-  
+  box-shadow: 2px 2px #e3cf4d;
 }
 
 footer {
@@ -91,22 +91,22 @@ footer {
   flex-direction: column;
 }
 
-.social i{
+.social i {
   margin-right: 1rem;
 }
 .social i:hover {
-  color: #E8C456;
+  color: #e8c456;
 }
 
 .fa-arrow-up-long {
   color: black;
 }
 
-.fa-arrow-up-long:hover{
-  color: #E8C456;
+.fa-arrow-up-long:hover {
+  color: #e8c456;
 }
 
-.social a{
+.social a {
   text-decoration: inherit;
   color: inherit;
 }
@@ -121,26 +121,27 @@ footer {
   font-size: 2.4rem;
   padding: 1rem;
   border-radius: 3rem;
-  color:black;
+  color: black;
   background-color: rgb(90, 86, 71);
   cursor: pointer;
   border-color: 1rem black;
 }
 
-.botoes button:hover{
-  background-color: #E8C456;
+.botoes button:hover {
+  background-color: #e8c456;
   color: black;
-  border:rgb(90, 86, 71);
+  border: rgb(90, 86, 71);
 }
 
 .motores {
-background-color: rgb(63, 58, 42);
-margin-bottom: 2rem;
-padding: 2rem;
+  background-color: rgb(63, 58, 42);
+  margin-bottom: 2rem;
+  padding: 2rem;
 }
 
-.motores h2, ul {
-  color: #E8C456;
+.motores h2,
+ul {
+  color: #e8c456;
 }
 
 .motores ul {
@@ -149,4 +150,53 @@ padding: 2rem;
 
 .motores ul li {
   margin-top: 1.5rem;
+}
+
+/* SOBRE NÓS*/
+
+.main-about {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-about p {
+  line-height: 2rem;
+  text-align: justify;
+  margin-top: 2rem;
+}
+
+.main-about h2 {
+  margin-top: 2rem;
+}
+
+table {
+  margin-top: 2rem;
+  border: 1px solid black;
+}
+th {
+  border: 1px solid black;
+}
+
+/* CONTATO  */
+
+.contact {
+  display: flex;
+}
+
+.contact div {
+  width: 50%;
+}
+
+.contatos {
+  background-color: rgb(63, 58, 42);
+  margin-bottom: 2rem;
+  padding: 2rem;
+}
+
+.contatos,
+.formulario section {
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 2rem;
 }
