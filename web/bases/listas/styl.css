@@ -188,9 +188,10 @@ th {
 }
 
 .contatos {
+  height: 60rem;
   background-color: rgb(63, 58, 42);
-  margin-bottom: 2rem;
-  padding: 2rem;
+  margin-bottom: 2rem ;
+  padding: 18rem;
 }
 
 .contatos,
@@ -199,4 +200,12 @@ th {
   align-items: center;
   flex-direction: column;
   padding-inline: 2rem;
+}
+
+.caixaFor {
+  height: 60rem;
+  width: 24rem;
+  background-color: rgb(85, 77, 52);
+  margin-bottom: 2rem ;
+  padding: 24rem;
 }
