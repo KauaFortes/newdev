@@ -17,6 +17,7 @@
       src="https://kit.fontawesome.com/c9cc0fd169.js"
       crossorigin="anonymous"
     ></script>
+    
     <title>contato</title>
   </head>
   <body>
@@ -49,25 +50,65 @@
     <main class="contact">
       <div class="contatos">
         <h1>contato</h1>
-        <i class="fa-solid fa-location-dot"></i>
-        <h3>address</h3>
-        <p>R. Guarani, 2 - Centro Pato Branco - PR 85501-030</p>
+       
+        <h3>
+          <i class="fa-solid fa-location-dot"></i> 
+          address</h3>
+        <p>rua dos drifts</p>
 
-        <i class="fa-solid fa-phone"></i>
-        <h3>Lets Talk</h3>
+        
+        <h3>
+          <i class="fa-solid fa-phone"></i> 
+          Lets Talk</h3>
         <p>(46)99132-2592</p>
 
-        <i class="fa-solid fa-envelope"></i>
-        <h3>General Support</h3>
+        
+        <h3>
+          <i class="fa-solid fa-envelope"></i> 
+          General Support</h3>
         <p>kaua.fortes03@gmail.com</p>
       </div>
 
       <div class="formulario">
-        <div class="caixaFor">
           <h1>formulario</h1>
-          <div class="botoes">
-            <button>send form</button>
-          </div>
+          <form>
+            <label for="name">
+              nome
+            </label>
+            <input  
+            id="name"
+            type="text" 
+            autocomplete="off" 
+            placeholder="nome"
+            required>
+            
+            <label for="email">
+              email
+            </label>
+            <input  
+            id="email"
+            type="text" 
+            autocomplete="off" 
+            placeholder="email"
+            required>
+
+            <label for="mens">
+              mensagem 
+            </label>
+            <input  
+            id="mens"
+            type="text"
+            autocomplete="off" 
+            placeholder="mensagem"
+            required>
+
+            <div>
+              <button type="submit" id="buttonSendMenssage">
+                send form
+              </button>
+            </div>
+
+          </form>
         </div>
       </div>
     </main>
@@ -91,5 +132,7 @@
         <i class="fa-solid fa-arrow-up-long fa-2x"></i>
       </a>
     </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>
