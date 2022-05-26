@@ -210,6 +210,8 @@ th {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  min-height: 50rem;
+  max-height: 57rem;
 }
 
 .formulario form button {

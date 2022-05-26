@@ -1,4 +1,5 @@
-const buttonSendMenssage = document.getElementById('buttonSendMenssage')
+const buttonSendMenssage = 
+document.getElementById('buttonSendMenssage')
 
 const messages = []
 
@@ -14,10 +15,20 @@ function addMessage(event) {
     email: inputEmail.value,
     mens: inputMens.value
   }
-  messages.push(mens)
+  
+  if (messages.length < 3) {
+    messages.push(mens)
+  } else {
+    //chama o alert do browser
+    alert('o vetor jaesta cheio')
+  }
 
+  //pegando o formulario e utilizando um metodo do form que é o reset
   document.getElementById('forme').reset()
-  console.log('imprimeir vetor', mens)
+  console.log('imprimeir vetor', messages)
 }
 
+//forma de identificar uma classe, é pela letra maiuscula
 buttonSendMenssage.addEventListener('click', addMessage)
+
+

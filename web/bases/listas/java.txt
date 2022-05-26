@@ -56,3 +56,33 @@ const multiplicaValor = () => {
 }
 
 multiplicaValor();
+
+///////
+
+function carro(cor, marca, modelo, ano) {
+  return {
+    cor,
+    marca,
+    modelo,
+    ano
+  }
+}
+
+const carro1 = carro('vermelho','volks','gol', 2010)
+const carro2 = carro('amarelo','volks','gol', 2010)
+const carro3 = carro('verde','volks','gol', 2010)
+const carro4 = carro('azul','volks','gol', 2010)
+
+console.log('carro1',carro1,'carro2', carro2,'carro3', carro3,'carro4', carro4)
+
+function pessoa(nome, sobrenome, idade){
+  return {
+    nome, sobrenome, idade,
+  }
+}
+
+const pessoa1 = pessoa('bruno', 'fontana', 25)
+const pessoa2 = pessoa('kaua', 'fontana', 25)
+const pessoa3 = pessoa('fer', 'fontana', 25)
+
+console.log(pessoa1, pessoa2, pessoa3)
