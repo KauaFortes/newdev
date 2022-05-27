@@ -1,0 +1,80 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #F0005B
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Kanit', sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1614285457768-646f65ca8548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-repeat: no-repeat;
+  color: #F0005B;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+h1 {
+  color:#F0005B;
+  text-align: center;
+}
+
+#form-message {
+  margin-top: 2rem;
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  border: 1px solid #F0005B;
+  padding: 3rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+textarea {
+  border: 1px solid #F0005B;
+  border-radius: 0.3rem;
+}
+
+#addButton {
+  border: 1px solid #F0005B;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #F0005B;
+  color: black;
+}
+
+#addButton:hover {
+  background-color: #000116;
+  color: #F0005B;
+}
+
+#section-messages {
+  margin-top: 3rem;
+}
+
+#section-messages h2 {
+  text-align: center;
+}
+
+.container input, textarea {
+  background-color: rgb(65, 64, 63);
+  color: white
+}
+
+
+
