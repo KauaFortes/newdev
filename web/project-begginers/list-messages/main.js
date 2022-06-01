@@ -1,7 +1,32 @@
 let countRow = 0
+let lineEditingInMoment = null
 
-function onClickEdit (idRecord) {
-  console.log('chamaou a funçao para editar', idRecord)
+function onClickRemove(lineToRemove) {
+  lineToRemove.remove()
+}
+function onClickEdit(lineEditing) {
+  lineEditingInMoment = lineEditing
+  //foreach é um metado que percorre todos os elementos de dentor do vetor
+  //  lineEditing.childNodes.forEach((valor, index) => {
+  //  console.log('valor: ', valor)
+  //  console.log('index: ', index)
+  //});
+
+  //const fromValue = lineEditing.childNodes[0].innerHTML
+  //const toValue = lineEditing.childNodes[1].innerHTML
+  //const messageValue = lineEditing.childNodes[2].innerHTML
+
+  // desestruturaçõa de array
+  const [from, to, message] = lineEditing.childNodes
+  document.getElementById('from').value = from.innerHTML
+
+  document.getElementById('to').value = to.innerHTML
+
+  document.getElementById('message').value = message.innerHTML
+}
+
+function onClickDelete(lineDelete) {
+  console.log('lineDelete:', lineDelete)
 }
 
 const buttonAddMenssage = document.getElementById('addButton')
@@ -32,8 +57,6 @@ function addMenssage(event) {
     to: inputTo.value,
     message: textArea.value
   }
-
-  console.log('-->', message)
 
   /* const sessionMessages = document.getElementById('section-messages')
 
@@ -81,26 +104,48 @@ function addMenssage(event) {
 
   const iconEdit = document.createElement('i')
   iconEdit.setAttribute('class', 'fa-solid fa-pen-to-square')
-  iconEdit.setAttribute('style', 'cursor:pointer')
+  iconEdit.setAttribute('title', 'Editar')
+  iconEdit.setAttribute('style', 'cursor:pointer;  margin-inline:0.5rem')
   tdButtons.appendChild(iconEdit)
-  
-  
+
   const iconRemove = document.createElement('i')
   iconRemove.setAttribute('class', 'fas fa-trash-can')
-  iconRemove.setAttribute('style', 'cursor:pointer')
+  iconRemove.setAttribute('title', 'Remover')
+  iconRemove.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
   tdButtons.appendChild(iconRemove)
-  
+
+  const iconDown = document.createElement('i')
+  iconDown.setAttribute('class', 'fa-solid fa-arrow-down')
+  iconDown.setAttribute('title', 'mover para baixo')
+  iconDown.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
+  tdButtons.appendChild(iconDown)
+
+  const iconUp = document.createElement('i')
+  iconUp.setAttribute('class', 'fa-solid fa-arrow-up')
+  iconUp.setAttribute('title', 'mover para cima')
+  iconUp.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
+  tdButtons.appendChild(iconUp)
+
   tr.appendChild(tdButtons)
 
   // precisamos IDentificar a linha
-  tr.setAttribute('id', countRow)
+
+  tr.setAttribute('id', `line${countRow}`)
   countRow += 1
-  
-  iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id});`)
-  
 
-  tbody.appendChild(tr)
+  iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id})`)
+  iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentElement.id})`)
 
+  if (lineEditingInMoment) {
+    const [fromToUpdate, toToUpdate, messageToUpdate] =
+      lineEditingInMoment.childNodes
+    fromToUpdate.innerHTML = message.from
+    toToUpdate.innerHTML = message.to
+    messageToUpdate.innerHTML = message.message
+    lineEditingInMoment = null
+  } else {
+    tbody.appendChild(tr)
+  }
   document.getElementById('form-message').reset()
 }
 buttonAddMenssage.addEventListener('click', addMenssage)
