@@ -1,151 +1,174 @@
-let countRow = 0
-let lineEditingInMoment = null
+let countRow = 0;
+let lineEditingInMoment = null;
+let indexRow;
 
 function onClickRemove(lineToRemove) {
-  lineToRemove.remove()
-}
-function onClickEdit(lineEditing) {
-  lineEditingInMoment = lineEditing
-  //foreach é um metado que percorre todos os elementos de dentor do vetor
-  //  lineEditing.childNodes.forEach((valor, index) => {
-  //  console.log('valor: ', valor)
-  //  console.log('index: ', index)
-  //});
-
-  //const fromValue = lineEditing.childNodes[0].innerHTML
-  //const toValue = lineEditing.childNodes[1].innerHTML
-  //const messageValue = lineEditing.childNodes[2].innerHTML
-
-  // desestruturaçõa de array
-  const [from, to, message] = lineEditing.childNodes
-  document.getElementById('from').value = from.innerHTML
-
-  document.getElementById('to').value = to.innerHTML
-
-  document.getElementById('message').value = message.innerHTML
+  lineToRemove.remove();
 }
 
-function onClickDelete(lineDelete) {
-  console.log('lineDelete:', lineDelete)
+function onClickEdit (lineEditing) {
+  lineEditingInMoment = lineEditing;
+
+  const [from, to, message] = lineEditing.childNodes;
+  document.getElementById('from')
+    .value = from.innerHTML;
+
+  document.getElementById('to')
+    .value = to.innerHTML;
+
+  document.getElementById('message')
+    .value = message.innerHTML;
 }
 
-const buttonAddMenssage = document.getElementById('addButton')
+function moveUp(row) {
+  const nodes = document.getElementById('tbody-messages').childNodes;
 
-function addMenssage(event) {
-  event.preventDefault()
-  const inputFrom = document.getElementById('from')
-  const inputTo = document.getElementById('to')
-  const textArea = document.getElementById('message')
-
-  if (!inputFrom.value.length) {
-    alert('O remetente deve ser informado')
-    return
-  }
-  if (!inputTo.value.length) {
-    alert('O destinatario deve ser informado')
-    return
-  }
-  //O trim remove os espaços do inicio e do fim da string
-  textArea.value = textArea.value.trim()
-  if (!textArea.value.length) {
-    alert('A mensagem deve ser informada')
-    return
-  }
-
-  const message = {
-    from: inputFrom.value,
-    to: inputTo.value,
-    message: textArea.value
-  }
-
-  /* const sessionMessages = document.getElementById('section-messages')
-
-  //buscamos uma lista não ordenada dentro da seção, para validarmos
-  //se existe ou não, se não existir, criamos ela
-  let ul = sessionMessages.querySelector('ul')
-
-  if (!ul) {
-    //criamos uma lista não ordenada
-    ul = document.createElement('ul')
-    //adiciona dentro da seção
-    sessionMessages.appendChild(ul)
-  }
-  document.getElementById('form-message').reset()
-
-  const table = document.createElement('table')
-  table.innerHTML = `  
-
-   ${messages.from}
-    ${messages.to}
-   ${messages.message}
-
-  ul.appendChild(table) */
-  const tbody = document.getElementById('tbody-messages')
-
-  const tr = document.createElement('tr')
-
-  //preimeira coluna
-  const tdfrom = document.createElement('td')
-  tdfrom.innerHTML = message.from
-
-  // segunda coluna
-  const tdto = document.createElement('td')
-  tdto.innerHTML = message.to
-
-  // terceira coluna
-  const tdmessage = document.createElement('td')
-  tdmessage.innerHTML = message.message
-
-  tr.appendChild(tdfrom)
-  tr.appendChild(tdto)
-  tr.appendChild(tdmessage)
-
-  const tdButtons = document.createElement('td')
-
-  const iconEdit = document.createElement('i')
-  iconEdit.setAttribute('class', 'fa-solid fa-pen-to-square')
-  iconEdit.setAttribute('title', 'Editar')
-  iconEdit.setAttribute('style', 'cursor:pointer;  margin-inline:0.5rem')
-  tdButtons.appendChild(iconEdit)
-
-  const iconRemove = document.createElement('i')
-  iconRemove.setAttribute('class', 'fas fa-trash-can')
-  iconRemove.setAttribute('title', 'Remover')
-  iconRemove.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
-  tdButtons.appendChild(iconRemove)
-
-  const iconDown = document.createElement('i')
-  iconDown.setAttribute('class', 'fa-solid fa-arrow-down')
-  iconDown.setAttribute('title', 'mover para baixo')
-  iconDown.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
-  tdButtons.appendChild(iconDown)
-
-  const iconUp = document.createElement('i')
-  iconUp.setAttribute('class', 'fa-solid fa-arrow-up')
-  iconUp.setAttribute('title', 'mover para cima')
-  iconUp.setAttribute('style', 'cursor:pointer; margin-inline:0.5rem')
-  tdButtons.appendChild(iconUp)
-
-  tr.appendChild(tdButtons)
-
-  // precisamos IDentificar a linha
-
-  tr.setAttribute('id', `line${countRow}`)
-  countRow += 1
-
-  iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id})`)
-  iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentElement.id})`)
-
-  if (lineEditingInMoment) {
-    const [fromToUpdate, toToUpdate, messageToUpdate] =
-      lineEditingInMoment.childNodes
-    fromToUpdate.innerHTML = message.from
-    toToUpdate.innerHTML = message.to
-    messageToUpdate.innerHTML = message.message
-    lineEditingInMoment = null
-  } else {
-    tbody.appendChild(tr)
-  }
-  document.getElementById('form-message').reset()
+  nodes.forEach((rowItem, index) => {
+    if (rowItem.id === row.id) {
+      indexRow = index - 1;
+    }
+  });
+        
+  moveLine('up');
 }
-buttonAddMenssage.addEventListener('click', addMenssage)
+
+function moveDown(row) {
+  const nodes = document.getElementById('tbody-messages').childNodes;
+
+  nodes.forEach((rowItem, index) => {
+    if (rowItem.id === row.id) {
+      indexRow = index - 1;
+    }
+  });
+
+  moveLine('down');
+}
+
+function moveLine(direction) {
+  const rows = document.getElementById('tbody-messages').rows;
+  
+  console.log('-> rows', rows);
+  console.log('indexRow', indexRow);
+  console.log('rows[indexRow]', rows[indexRow])
+  const parent = rows[indexRow].parentNode;
+
+  if (direction === 'up') {
+    if (indexRow >= 1) {
+      parent.insertBefore(rows[indexRow],rows[indexRow - 1]);
+
+      indexRow--;
+    }
+  }
+
+  if (direction === 'down') {
+    if(indexRow < rows.length){
+      if (rows[indexRow + 1]) {
+        parent.insertBefore(rows[indexRow + 1],rows[indexRow]);
+        indexRow++;
+      }
+    }
+  }
+}
+
+document.getElementById('addButton')
+  .addEventListener('click', function(event) {
+    event.preventDefault()
+    const from = document
+      .getElementById('from').value;
+    const to = document
+      .getElementById('to').value;
+    const messageValue = document
+      .getElementById('message').value;
+
+      if (!to.length) { 
+        alert('O remetente deve ser informado')
+        return;
+      }
+      
+      if (!from.length) { 
+        alert('O destinatário deve ser informado')
+        return;
+      }
+      
+      if (!messageValue.length) { 
+        alert('A mensagem deve ser informada')
+        return;
+      }
+
+      const message = { from, to, message: messageValue };
+
+      document.getElementById('form-message').reset();
+
+      const tbody = document
+      .getElementById('tbody-messages')
+
+      const tr = document
+      .createElement('tr');
+
+      // primeira coluna
+      const tdFrom = document.createElement('td')
+      tdFrom.innerHTML = message.from
+      // segunda coluna
+      const tdTo = document.createElement('td')
+      tdTo.innerHTML = message.to
+      // terceira coluna
+      const tdMessage = document.createElement('td')
+      tdMessage.innerHTML = message.message;
+
+      tr.appendChild(tdFrom);
+      tr.appendChild(tdTo);
+      tr.appendChild(tdMessage);
+
+      const tdButtons =
+        document.createElement('td')
+      const iconEdit =
+        document.createElement('i')
+      iconEdit.setAttribute('class', 'fas fa-edit');
+      iconEdit.setAttribute('title', 'Editar');
+      iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;');
+      tdButtons.appendChild(iconEdit)
+
+      
+      const iconRemove = document.createElement('i');
+      iconRemove.setAttribute('class', 'fas fa-trash');
+      iconRemove.setAttribute('title', 'Remover');
+      iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;');
+      tdButtons.appendChild(iconRemove);
+
+      const iconArrowDown = document.createElement('i');
+      iconArrowDown.setAttribute('class', 'fas fa-arrow-down');
+      iconArrowDown.setAttribute('title', 'Mover abaixo');
+      iconArrowDown.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;');
+      tdButtons.appendChild(iconArrowDown);
+
+      const iconArrowUp = document.createElement('i');
+      iconArrowUp.setAttribute('class', 'fas fa-arrow-up');
+      iconArrowUp.setAttribute('title', 'Mover acima');
+      iconArrowUp.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;');
+      tdButtons.appendChild(iconArrowUp);
+      
+      tr.appendChild(tdButtons);
+
+      // Precisamos IDENTIFICAR a linha
+      tr.setAttribute('id', `line${countRow}`);
+      countRow += 1;
+      
+      iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id});`);
+      iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentElement.id});`)
+
+      iconArrowUp.setAttribute('onclick', `moveUp(${tdButtons.parentElement.id});`)
+      iconArrowDown.setAttribute('onclick', `moveDown(${tdButtons.parentElement.id});`)
+
+      if (lineEditingInMoment) {
+        const [fromToUpdate, toToUpdate, messageToUpdate] = 
+          lineEditingInMoment.childNodes;
+        
+        fromToUpdate.innerHTML = message.from;
+        toToUpdate.innerHTML = message.to;
+        messageToUpdate.innerHTML = message.message;
+
+        lineEditingInMoment = null;
+      } else {
+        tbody.appendChild(tr);
+      }
+  });
