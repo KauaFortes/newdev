@@ -1,0 +1,98 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Kanit', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+}
+
+#form-record {
+  margin-top: 2rem;
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  border: 1px solid black;
+  padding: 3rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+textarea {
+  border: 1px solid black;
+  border-radius: 0.3rem;
+}
+
+#addRegistration {
+  border: 1px solid black;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
+}
+
+#addRegistration:hover {
+  background-color: #000116;
+  color: #F0005B;
+}
+
+#section-registration {
+  margin-top: 3rem;
+}
+
+#section-registration h2 {
+  text-align: center;
+}
+
+
+
+#Name {
+  border: 1px solid black;
+}
+
+#address {
+  border: 1px solid black;
+}
+
+#phoneNumber {
+  border: 1px solid black;
+}
+
+#email {
+  border: 1px solid black;
+}
+
+ul {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+table {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-top: 2rem;
+}
+table, th, td { 
+  border: 1px solid black;
+}

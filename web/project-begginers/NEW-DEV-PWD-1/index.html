@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,400;0,600;0,700;1,300;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/c9cc0fd169.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Projeto Desenvolvimento Web 1</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Formulario de cadastro</h1>
+
+      <form id="form-record">
+        <label for="name">Nome</label>
+        <input
+          id="name"
+          type="text"
+          autocomplete="off"
+          placeholder="Primeiro nome"
+        />
+        <input
+          id="name"
+          type="text"
+          autocomplete="off"
+          placeholder="Ultimo nome"
+        />
+
+        <label for="address">Endereço</label>
+        <input
+          id="address"
+          type="text"
+          autocomplete="off"
+          placeholder="Endereço"
+        />
+        <input
+          id="address"
+          type="text"
+          autocomplete="off"
+          placeholder="Cidade"
+        />
+        <input
+          id="address"
+          type="text"
+          autocomplete="off"
+          placeholder="Codigo postal"
+        />
+        <input
+        id="address"
+        type="text"
+        autocomplete="off"
+        placeholder="Pais"
+        />
+        
+        <label for="phoneNumber">seu numero de telefone para contato</label>
+        <input
+        id="phoneNumber"
+        type="text"
+        autocomplete="off"
+        placeholder="(dd)0000-0000"
+        />
+
+        <label for="email">Seu Email para contato</label>
+        <input
+        id="email"
+        type="text"
+        autocomplete="off"
+        placeholder="Email"
+        />
+
+        <button type="button" id="addRegistration">
+          Adicionar Cadastro
+        </button>
+      </form>
+
+      <section id="section-registration">
+        <h2>Cadastros:</h2>
+      </section>
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Numero</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody-messages">
+
+        </tbody>
+      </table>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
