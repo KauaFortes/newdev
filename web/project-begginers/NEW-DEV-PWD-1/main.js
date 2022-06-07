@@ -1,111 +1,52 @@
-let countRow = 0;
-let lineEditingInMoment = null;
-
-function onClickRemove(lineToRemove) {
-  lineToRemove.remove();
-}
-
-function onClickEdit (lineEditing) {
-  lineEditingInMoment = lineEditing;
-
-  const [name, address, phoneNumber, email] = lineEditing.childNodes;
-  document.getElementById('name')
-    .value = name.innerHTML
-
-  document.getElementById('address')
-    .value = address.innerHTML
-
-  document.getElementById('phoneNumber')
-    .value = phoneNumber.innerHTML
-
-  document.getElementById('email')
-    .value = email.innerHTML
-}
-
-Document.getElementById('addRegistration')
-  .addEventListener('click', function (event) {
-    event.preventDefault();
-    const name = document.getElementById('name').value
-    const address = document.getElementById('address').value
-    const phoneNumber = document.getElementById('phoneNumber').value
-    const email = document.getElementById('email').value
-
-    if (!name.length) {
-      alert('O nome deve ser informado')
-      return
-    }
-
-    if (!address.length) {
-      alert('O Endereço deve ser informado')
-      return
-    }
-
-    if (!phoneNumber.length) {
-      alert('O numero de telefone deve ser informado')
-      return
-    }
-
-    if (!email.length) {
-      alert('O Email deve ser informado')
-      return
-    }
-
-    const record = {name, address, phoneNumber, email: recordValue}
-    document.getElementById('form-record').reset()
-
-    const tbody = document.getElementById('tbody-messages')
-    const tr = document.createElement('tr')
-
-    const tdName = document.createElement('td')
-    tdName.innerHTML = record.name
-
-    const tdAddress = document.createElement('td')
-    tdAddress.innerHTML = record.address
-
-    const tdPhoneNumber = document.createElement('td')
-    tdPhoneNumber.innerHTML = record.phoneNumber
-
-    const tdEmail = document.createElement('td')
-    tdEmail.innerHTML = record.email
-
-    tr.appendChild(tdName)
-    tr.appendChild(tdAddress)
-    tr.appendChild(tdPhoneNumber)
-    tr.appendChild(tdEmail)
-
-    const tdButtons = document.createElement('td')
-
-    const iconEdit = document.createElement('i')
-    iconEdit.setAttribute('class', 'fas fa-edit')
-    iconEdit.setAttribute('title', 'Editar')
-    iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-    tdButtons.appendChild(iconEdit)
-
-    const iconRemove = document.createElement('i')
-    iconRemove.setAttribute('class', 'fas fa-trash')
-    iconRemove.setAttribute('title', 'Remover')
-    iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-    tdButtons.appendChild(iconRemove)
-
-    tr.appendChild(tdButtons)
+let record = []
 
 
-    tr.setAttribute('id', `line${countRow}`)
-    countRow += 1;
-      
-    iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id});`)
-    iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentElement.id});`)
+const addPeople = (event) => {
+  event.preventDefault();
+  const people = {
+    firtsName: document.getElementById('firtsName').value,
+    lastName: document.getElementById('lastName').value,
+    address: document.getElementById('address').value,
+    city: document.getElementById('city').value,
+    cod: document.getElementById('cod').value,
+    country: document.getElementById('country').value,
+    phoneNumber: document.getElementById('phoneNumber').value,
+    email: document.getElementById('email').value,
+  }
 
-    if (lineEditingInMoment) {
-      const [nameUpdate, addressToUpdate, phoneNumberToUpdate, emailToUpdate] = lineEditingInMoment.childNodes;
-      
-      nameToUpdate.innerHTML = message.name
-      addressToUpdate.innerHTML = message.address
-      phoneNumbertoUpdate.innerHTML = message.phoneNumber
-      emailToUpdate.innerHTML = message.email
+  const itemsJaArmazenados = localStorage.getItem('people')
 
-      lineEditingInMoment = null
-    } else {
-      tbody.appendChild(tr)
-    }
+  record = itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
+
+  record.push(people)
+
+  localStorage.setItem('people', JSON.stringify(record))
+
+  document.querySelector('form').reset();
+
+  const items = localStorage.getItem('people')
+
+  const itemsSerialized = JSON.parse(items)
+
+
+  //ul[{}, {}] - length = 2
+  //itemsSerialized[{} {} {}] - length = 3
+  let ul = document.querySelector('ul');
+  if(ul) {
+    ul.remove()
+  }
+  
+  ul = document.createElement('ul')
+
+  console.log('node list ul', ul.childNodes)
+  itemsSerialized.forEach((item, index) => {
+      const li = document.createElement('li')
+      li.innerHTML = `primeiro nome: ${item.firstname}/ sobrenome: ${item.lastname}/ endereço: ${item.address}/ cidade: ${item.city}/ codigo: ${item.cod}/ pais: ${item.country}/ numero: ${item.phoneNumber}/ emailusuario ${item.email}/`
+      console.log('ITEMS', item)
+    
+    ul.appendChild(li)
   })
+  document.getElementById('tbody-messages').appendChild(ul)
+}
+  const addButton = document.getElementById('addButton');
+  addButton.addEventListener('click', addPeople)

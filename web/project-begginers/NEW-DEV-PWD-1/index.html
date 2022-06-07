@@ -25,13 +25,13 @@
       <form id="form-record">
         <label for="name">Nome</label>
         <input
-          id="name"
+          id="firtsName"
           type="text"
           autocomplete="off"
           placeholder="Primeiro nome"
         />
         <input
-          id="name"
+          id="lastName"
           type="text"
           autocomplete="off"
           placeholder="Ultimo nome"
@@ -45,19 +45,19 @@
           placeholder="Endereço"
         />
         <input
-          id="address"
+          id="city"
           type="text"
           autocomplete="off"
           placeholder="Cidade"
         />
         <input
-          id="address"
+          id="cod"
           type="text"
           autocomplete="off"
           placeholder="Codigo postal"
         />
         <input
-        id="address"
+        id="country"
         type="text"
         autocomplete="off"
         placeholder="Pais"
@@ -79,7 +79,7 @@
         placeholder="Email"
         />
 
-        <button type="button" id="addRegistration">
+        <button type="button" id="addButton">
           Adicionar Cadastro
         </button>
       </form>
@@ -87,21 +87,12 @@
       <section id="section-registration">
         <h2>Cadastros:</h2>
       </section>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Endereço</th>
-            <th>Numero</th>
-            <th>Email</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
 
-        <tbody id="tbody-messages">
+      <section id="tbody-messages" >
+        
+      </section>
 
-        </tbody>
-      </table>
+
     </main>
 
     <script src="main.js"></script>

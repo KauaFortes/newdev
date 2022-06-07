@@ -1,0 +1,24 @@
+# Projeto Desenvolvimento Web 1
+
+Implementar uma página web, com o objetivo de cadastrar usuários, esse cadastro deve conter: 
+- [*] nome
+- [*] sobrenome
+- [*] endereço
+- [*] complemento do endereço
+- [*] numero celular
+- [*] e-mail para contato
+
+Além do cadastro deve ser possível, visualizar esses cadastros;
+
+Utilizar dos seguintes recursos:
+
+- [ ]  HTML , CSS (Estrutura HTML, HTML Semântico será bem-vindo, CSS (estilização, use e abuse));
+- [ ]  Formulários;
+- [ ]  Inputs - Lembrar da utilização de cada tipo de input;
+- [ ]  DOM - Manipulação da DOM (Document Object Model);
+- [ ]  Arrays(Vetores);
+- [ ]  Listas ou Tabelas, fica a critério do desenvolvedor;
+- [ ]  Local Storage / getItem, setItem
+- [ ]  Não sera considerado cópia do exercício desenvolvido em sala;
+
+NEW-DEV-PDW-1
