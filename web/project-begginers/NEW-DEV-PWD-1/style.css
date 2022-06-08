@@ -11,9 +11,12 @@
 body {
   font-size: 1.6rem;
   font-family: 'Kanit', sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1595472968262-48209bf5b390?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+  background-repeat: no-repeat;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -21,18 +24,23 @@ h1 {
   text-align: center;
 }
 
+.container h1 {
+  color: rgb(58, 160, 27);
+}
+
 #form-record {
   margin-top: 2rem;
   margin: 0 auto;
   width: 50%;
   display: grid;
-  border: 1px solid black;
-  padding: 3rem;
 }
 
 input {
+  margin-top: 0.5rem;
   padding: 0.5rem;
   border-radius: 1rem;
+  background-color: black;
+  color: rgb(58, 160, 27);
 }
 
 textarea {
@@ -40,20 +48,21 @@ textarea {
   border-radius: 0.3rem;
 }
 
-#addRegistration {
-  border: 1px solid black;
+#addButton {
+  border: 1px solid rgb(58, 160, 27);
   text-transform: uppercase;
   padding: 0.5rem;
   margin-top: 1rem;
   border-radius: 1rem;
   font-weight: 700;
   cursor: pointer;
-  color: black;
+  background-color: black;
+  color: rgb(9, 85, 6);
 }
 
-#addRegistration:hover {
-  background-color: #000116;
-  color: #F0005B;
+#addButton:hover {
+  background-color: rgb(11, 58, 2);
+  color: rgb(58, 160, 27);
 }
 
 #section-registration {
@@ -62,36 +71,42 @@ textarea {
 
 #section-registration h2 {
   text-align: center;
+  color: rgb(58, 160, 27);
 }
 
-
-#Name {
-  border: 1px solid black;
-}
-
-#address {
-  border: 1px solid black;
-}
-
-#phoneNumber {
-  border: 1px solid black;
-}
-
+#firtsName,
+#lastName,
+#address,
+#city,
+#cod,
+#country,
+#phoneNumber,
 #email {
-  border: 1px solid black;
+  border: 1px solid rgb(58, 160, 27);
+}
+
+label {
+  color: rgb(58, 160, 27);
 }
 
 ul {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 1rem;
+  list-style: none;
+  max-height: 28rem;
+  min-height: 28rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  width: 60%;
 }
-table {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 1rem;
-  margin-top: 2rem;
+
+li {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgb(58, 160, 27);
 }
-table, th, td { 
-  border: 1px solid black;
+
+#tbody-messages {
+  color: rgb(58, 160, 27);
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
 }

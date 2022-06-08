@@ -12,13 +12,12 @@ Além do cadastro deve ser possível, visualizar esses cadastros;
 
 Utilizar dos seguintes recursos:
 
-- [ ]  HTML , CSS (Estrutura HTML, HTML Semântico será bem-vindo, CSS (estilização, use e abuse));
-- [ ]  Formulários;
-- [ ]  Inputs - Lembrar da utilização de cada tipo de input;
+- [*]  HTML , CSS (Estrutura HTML, HTML Semântico será bem-vindo, CSS (estilização, use e abuse));
+- [*]  Formulários;
+- [*]  Inputs - Lembrar da utilização de cada tipo de input;
 - [ ]  DOM - Manipulação da DOM (Document Object Model);
-- [ ]  Arrays(Vetores);
+- [*]  Arrays(Vetores);
 - [ ]  Listas ou Tabelas, fica a critério do desenvolvedor;
-- [ ]  Local Storage / getItem, setItem
-- [ ]  Não sera considerado cópia do exercício desenvolvido em sala;
+- [*]  Local Storage / getItem, setItem
 
 NEW-DEV-PDW-1
