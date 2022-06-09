@@ -1,86 +1,83 @@
 let record = []
-
-const iconEdit = document.createElement('i')
-iconEdit.setAttribute('class', 'fas fa-edit')
-iconEdit.setAttribute('title', 'Editar')
-iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-
-const iconRemove = document.createElement('i')
-iconRemove.setAttribute('class', 'fas fa-trash')
-iconRemove.setAttribute('title', 'Remover')
-iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-
-
-function onClickRemove(lineToRemove) {
-  lineToRemove.remove();
-}
-
-function onClickEdit (lineEditing) {
-  lineEditingInMoment = lineEditing;
-
-  const [firtsName, lastName, address, city, cod, country, phoneNumber, email] = lineEditing.childNodes;
-  document.getElementById('firtsName')
-    .value = firtsName.innerHTML;
-
-  document.getElementById('lastName')
-    .value = lastName.innerHTML;
-
-  document.getElementById('address')
-    .value = address.innerHTML;
-
-  document.getElementById('city')
-    .value = city.innerHTML;
-
-  document.getElementById('cod')
-    .value = cod.innerHTML;
-
-  document.getElementById('country')
-    .value = country.innerHTML;
-
-  document.getElementById('phoneNumber')
-    .value = phoneNumber.innerHTML;
-
-  document.getElementById('email')
-    .value = email.innerHTML;
-} 
+let identificadorQueTaSendoEditado = null
 
 const loadPeoples = () => {
   const itemsJaArmazenados = localStorage.getItem('pessoas lsitadas')
   return itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
 }
 
-const span = () => {
+const onClickEdit = element => {
+  const identificadorASerEncontrado = element.getAttribute('identificador')
+
+  identificadorQueTaSendoEditado = +identificadorASerEncontrado
+
+  const peoples = loadPeoples()
+  console.log('corregar pessoas', peoples)
+  let pessoaEncontrada = {
+    firtsName:'',
+    lastName:'',
+    address:'',
+    city:'',
+    cod:'',
+    country:'',
+    phoneNumber:'',
+    email:'',
+
+
+  }
+
+  peoples.forEach((pessoa, identificador) => {
+    if (identificador == identificadorASerEncontrado) {
+      pessoaEncontrada.firtsName = pessoa.firtsName
+      pessoaEncontrada.lastName = pessoa.lastName
+      pessoaEncontrada.address = pessoa.address0
+      pessoaEncontrada.city = pessoa.city
+      pessoaEncontrada.cod = pessoa.cod
+      pessoaEncontrada.country = pessoa.country
+      pessoaEncontrada.phoneNumber = pessoa.phoneNumber
+      pessoaEncontrada.email = pessoa.email
+    }
+  })
+document.getElementById('firtsName').value = pessoaEncontrada.firtsName
+document.getElementById('lastName').value = pessoaEncontrada.lastName
+document.getElementById('address').value = pessoaEncontrada.address
+document.getElementById('city').value = pessoaEncontrada.city
+document.getElementById('cod').value = pessoaEncontrada.cod
+document.getElementById('country').value = pessoaEncontrada.country
+document.getElementById('phoneNumber').value = pessoaEncontrada.phoneNumber
+document.getElementById('email').value = pessoaEncontrada.email
+}
+
+const onClickRemove = element => {
+  const identificadorASerEncontrado = +element.getAttribute('identificador')
+
+  const pessoas = loadPeoples()
+  pessoas.splice(identificadorASerEncontrado, 1)
+  console.log('pessoas', pessoas)
+  localStorage.setItem('listaDePessoas', JSON.stringify(pessoas))
+  listPeoples()
+}
+
+const span = identificador => {
   const span = document.createElement('span')
+  const iconEdit = document.createElement('i')
+  iconEdit.setAttribute('class', 'fas fa-edit')
+  iconEdit.setAttribute('title', 'Editar')
+  iconEdit.setAttribute('identificador', `${identificador}`)
+  iconEdit.setAttribute('onclick', `onClickEdit(this)`)
+  iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
 
   span.appendChild(iconEdit)
+
+  const iconRemove = document.createElement('i')
+  iconRemove.setAttribute('class', 'fas fa-trash')
+  iconRemove.setAttribute('title', 'Remover')
+  iconRemove.setAttribute('identificador', `${identificador}`)
+  iconRemove.setAttribute('onclick', `onClickRemove(this)`)
+  iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+
   span.appendChild(iconRemove)
 
-
-  li.appendChild(span);
-
-  li.setAttribute('id', `line${countRow}`);
-  countRow += 1;
-
-  iconEdit.setAttribute('onclick', `onClickEdit(${span.parentElement.id});`);
-  iconRemove.setAttribute('onclick', `onClickRemove(${span.parentElement.id});`)
-
-  if (lineEditingInMoment) {
-    const [firtsNameToUpdate, lastNameToUpdate, addressToUpdate, cityToUpdate, codToUpdate, countryToUpdate, phoneNumberToUpdate, emailToUpdate] = 
-      lineEditingInMoment.childNodes;
-    
-      firtsNameToUpdate.innerHTML = message.firtsName;
-      lastNameToUpdate.innerHTML = message.lastName;
-      addressToUpdate.innerHTML = message.addressTo;
-      cityToUpdate.innerHTML = message.city;
-      codToUpdate.innerHTML = message.cod;
-      countryToUpdate.innerHTML = message.country;
-      phoneNumberToUpdate.innerHTML = message.phoneNumber;
-      emailToUpdate.innerHTML = message.email;
-
-    lineEditingInMoment = null;
-  } else {
-    tbody-messages.appendChild(li);
-  } 
   return span
 }
 
@@ -94,10 +91,9 @@ const listPeoples = () => {
 
   ul = document.createElement('ul')
 
-  peoples.forEach((item, index) => {
+  peoples.forEach((item, identificador) => {
     const li = document.createElement('li')
-    li.innerHTML = 
-    `primeiro nome: ${item.firtsName},
+    li.innerHTML = `primeiro nome: ${item.firtsName},
     sobrenome: ${item.lastName}, 
     endereço: ${item.address},
     cidade: ${item.city}, 
@@ -106,7 +102,7 @@ const listPeoples = () => {
     numero: ${item.phoneNumber},
     email do usuario ${item.email}`
 
-    li.appendChild(span())
+    li.appendChild(span(identificador))
     ul.appendChild(li)
   })
   document.getElementById('tbody-messages').appendChild(ul)
@@ -135,8 +131,6 @@ const addPeople = event => {
   localStorage.setItem('pessoas lsitadas', JSON.stringify(record))
 
   document.querySelector('form').reset()
-
-
 
   listPeoples()
 }
