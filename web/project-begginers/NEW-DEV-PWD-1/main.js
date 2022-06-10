@@ -58,6 +58,30 @@ const onClickRemove = element => {
   listPeoples()
 }
 
+const salvarRegistroEditado = registroSendoEditado => {
+  const pessoas = loadPeoples()
+  const pessoasAtualizadas = pessoas.map((pessoa, index) => {
+    if (identificadorQueTaSendoEditado === index) {
+      pessoa.firtsName = registroSendoEditado.firtsName
+      pessoa.lastName = registroSendoEditado.lastName
+      pessoa.address = registroSendoEditado.address
+      pessoa.city = registroSendoEditado.city
+      pessoa.cod = registroSendoEditado.cod
+      pessoa.country = registroSendoEditado.country
+      pessoa.phoneNumber = registroSendoEditado.phoneNumber
+      pessoa.email = registroSendoEditado.email
+    }
+    return pessoa
+  })
+
+  localStorage.setItem('listaDePessoas', JSON.stringify(pessoasAtualizadas))
+
+  identificadorQueTaSendoEditado = null
+
+  listPeoples()
+  document.querySelector('form').reset()
+}
+
 const span = identificador => {
   const span = document.createElement('span')
   const iconEdit = document.createElement('i')
@@ -93,7 +117,8 @@ const listPeoples = () => {
 
   peoples.forEach((item, identificador) => {
     const li = document.createElement('li')
-    li.innerHTML = `primeiro nome: ${item.firtsName},
+    li.innerHTML = `
+    primeiro nome: ${item.firtsName},
     sobrenome: ${item.lastName}, 
     endereço: ${item.address},
     cidade: ${item.city}, 
@@ -122,13 +147,18 @@ const addPeople = event => {
     phoneNumber: document.getElementById('phoneNumber').value,
     email: document.getElementById('email').value
   }
+  console.log('after save registry', identificadorQueTaSendoEditado)
+  if (identificadorQueTaSendoEditado || identificadorQueTaSendoEditado === 0) {
+    salvarRegistroEditado(people)
+    return
+  }
 
-  record = loadPeoples()
+  peoples = loadPeoples()
 
-  record.push(people)
+  console.log('after save registry')
+  peoples.push(people)
 
-  //JSON transforma a stringify em obejto ou vice versa
-  localStorage.setItem('pessoas lsitadas', JSON.stringify(record))
+  localStorage.setItem('listaDePessoas', JSON.stringify(record))
 
   document.querySelector('form').reset()
 
