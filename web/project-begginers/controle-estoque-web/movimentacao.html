@@ -26,7 +26,34 @@
       </div>
     </header>
     <main>
+      <section>
+        <h4>escolha o id do Veiculo que deseja movimentar ou deletar</h1>
+      </section>
       <section id="list-section"></section>
+      <form id="form-registration">
+        <label for="Modelo">Modelo do Veiculo</label>
+        <input
+          id="model"
+          type="text"
+          disabled="true"
+        />
+
+        <label for="Marca">marca do Veiculo</label>
+        <input
+          id="brand"
+          type="text"
+          disabled="true"
+        />
+
+        <label for="ano">ano do Veiculo</label>
+        <input id="year" 
+        type="text"
+        disabled="true"/>
+
+        <label for="Quantia">Quantidade</label>
+        <input id="amount" type="number">
+        <button id="btn">cadastrar</button>
+      </form>
 
       <a href="index.html">
         <button>voltar para as opções</button>
@@ -36,8 +63,9 @@
         <button>cadastrar um veiculos</button>
       </a>
 
-      <a href="movimentacao.html">
-        <button>movimentação de estoque</button>
+
+      <a href="estoque.html">
+        <button>ver estoque</button>
       </a>
     </main>
     <script src="main.js"></script>

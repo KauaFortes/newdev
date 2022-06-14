@@ -77,6 +77,9 @@ main {
 
  button:hover {
   width : 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
   background-color: #a61dc2;
   color: black;
   border: rgb(50, 46, 51)
@@ -105,17 +108,22 @@ form {
   display: grid;
 }
 
+#list-section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
 ul {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 1rem;
+  list-style: none;
+  max-height: 15rem;
+  min-height: 15rem;
+  overflow-y: auto;
+  width: 60%;
 }
-table {
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 1rem;
-  margin-top: 2rem;
-}
-table { 
-  border: 1px solid #a61dc2;
+
+li {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ccc;
 }

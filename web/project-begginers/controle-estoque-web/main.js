@@ -1,102 +1,164 @@
-let countRow = 0;
-let lineEditingInMoment = null;
-let indexRow;
+let cars = []
 
-function onClickEdit (lineEditing) {
-  lineEditingInMoment = lineEditing;
+let totalDeCarros = 0
 
-  const [model, brand, year] = lineEditing.childNodes;
-  document.getElementById('model')
-    .value = model.innerHTML;
+let identificadorQueTaSendoEditado = null
 
-  document.getElementById('brand')
-    .value = brand.innerHTML;
-
-  document.getElementById('year')
-    .value = year.innerHTML;
+const loadCars = () => {
+  const itemsJaArmazenados = localStorage.getItem('listaDeCarros')
+  return itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
 }
 
-document.getElementById('addButton')
-  .addEventListener('click', function(event) {
-    event.preventDefault()
-    const model = document
-      .getElementById('model').value;
-    const brand = document
-      .getElementById('brand').value;
-    const year = document
-      .getElementById('year').value;
+const onClickEdit = element => {
+  const identificadorASerEncontrado = element.getAttribute('identificador')
 
-      if (!model.length) { 
-        alert('O remetente deve ser informado')
-        return;
-      }
-      
-      if (!brand.length) { 
-        alert('O destinatário deve ser informado')
-        return;
-      }
-      
-      if (!year.length) { 
-        alert('A mensagem deve ser informada')
-        return;
-      }
+  identificadorQueTaSendoEditado = +identificadorASerEncontrado
 
-      const message = { model, brand, year};
+  const cars = loadCars()
+  console.log('carregar Carros', cars)
+  let carroEncontrada = {
+    model: '',
+    brand: '',
+    year: '',
+    amount: ''
+  }
 
-      document.getElementById('form-registration').reset();
+  cars.forEach((carro, identificador) => {
+    if (identificador === +identificadorASerEncontrado) {
+      carroEncontrada.brand = carro.brand
+      carroEncontrada.model = carro.model
+      carroEncontrada.year = carro.year
+      carroEncontrada.amount = carro.amount
+    }
+  })
 
-      const tbody = document
-      .getElementById('tbody-messages')
+  document.getElementById('model').value = carroEncontrada.model
+  document.getElementById('brand').value = carroEncontrada.brand
+  document.getElementById('year').value = carroEncontrada.year
+  document.getElementById('amount').value = carroEncontrada.amount
 
-      const tr = document
-      .createElement('tr');
+  console.log('carroEncontrada', carroEncontrada)
+}
 
-      // primeira coluna
-      const tdFrom = document.createElement('td')
-      tdFrom.innerHTML = message.from
-      // segunda coluna
-      const tdTo = document.createElement('td')
-      tdTo.innerHTML = message.to
-      // terceira coluna
-      const tdMessage = document.createElement('td')
-      tdMessage.innerHTML = message.message;
+const onClickRemove = element => {
+  const identificadorASerEncontrado = +element.getAttribute('identificador')
 
-      tr.appendChild(tdFrom);
-      tr.appendChild(tdTo);
-      tr.appendChild(tdMessage);
+  const carros = loadCars()
+  carros.splice(identificadorASerEncontrado, 1)
+  console.log('Carros', carros)
+  localStorage.setItem('listaDeCarros', JSON.stringify(carros))
+  listCars()
+}
 
-      const tdButtons =
-        document.createElement('td')
-      const iconEdit =
-        document.createElement('i')
-      iconEdit.setAttribute('class', 'fas fa-edit');
-      iconEdit.setAttribute('title', 'Editar');
-      iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;');
-      tdButtons.appendChild(iconEdit)
+const salvarRegistroEditado = registroSendoEditado => {
+  const carros = loadCars()
+  const carrosAtualizados = carros.map((carro, index) => {
+    if (identificadorQueTaSendoEditado === index) {
+      carro.model = registroSendoEditado.model
+      carro.brand = registroSendoEditado.brand
+      carro.year = registroSendoEditado.year
+      carro.amount = registroSendoEditado.amount
+    }
+    return carro
+  })
 
-      
-      tr.appendChild(tdButtons);
+  localStorage.setItem('listaDeCarros', JSON.stringify(carrosAtualizados))
 
-      // Precisamos IDENTIFICAR a linha
-      tr.setAttribute('id', `line${countRow}`);
-      countRow += 1;
-      
-      iconEdit.setAttribute('onclick', `onClickEdit(${tdButtons.parentElement.id});`);
-      iconRemove.setAttribute('onclick', `onClickRemove(${tdButtons.parentElement.id});`)
+  identificadorQueTaSendoEditado = null
 
-      iconArrowUp.setAttribute('onclick', `moveUp(${tdButtons.parentElement.id});`)
-      iconArrowDown.setAttribute('onclick', `moveDown(${tdButtons.parentElement.id});`)
+  listCars()
+  document.querySelector('form').reset()
+}
 
-      if (lineEditingInMoment) {
-        const [fromToUpdate, toToUpdate, messageToUpdate] = 
-          lineEditingInMoment.childNodes;
-        
-        fromToUpdate.innerHTML = message.from;
-        toToUpdate.innerHTML = message.to;
-        messageToUpdate.innerHTML = message.message;
+const span = identificador => {
+  const span = document.createElement('span')
+  const iconEdit = document.createElement('i')
+  iconEdit.setAttribute('class', 'fas fa-edit')
+  iconEdit.setAttribute('title', 'Editar')
+  iconEdit.setAttribute('identificador', `${identificador}`)
+  iconEdit.setAttribute('onclick', `onClickEdit(this)`)
+  iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+ 
+  const iconRemove = document.createElement('i')
+  iconRemove.setAttribute('class', 'fas fa-trash')
+  iconRemove.setAttribute('title', 'Remover')
+  iconRemove.setAttribute('identificador', `${identificador}`)
+  iconRemove.setAttribute('onclick', `onClickRemove(this)`)
+  iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+  
+  if (document.getElementById('form-registration')){
+  span.appendChild(iconEdit)
+  span.appendChild(iconRemove)
+  }
 
-        lineEditingInMoment = null;
-      } else {
-        tbody.appendChild(tr);
-      }
-  });
+  return span
+}
+
+const listCars = () => {
+  const cars = loadCars()
+
+  let ul = document.querySelector('ul')
+  if (ul) {
+    ul.remove()
+  }
+
+  ul = document.createElement('ul')
+
+  cars.forEach((item, identificador) => {
+    const li = document.createElement('li')
+    li.innerHTML = `Modelo: ${item.model} 
+     Marca: ${item.brand}, 
+     Ano: ${item.year},
+     quantidade: ${item.amount}
+     `
+
+    li.appendChild(span(identificador))
+    ul.appendChild(li)
+  })
+  const seçãoDaLista = document.getElementById('list-section')
+  if (seçãoDaLista) {
+    document.getElementById('list-section').appendChild(ul)
+  }
+}
+
+listCars()
+
+const addCar = event => {
+  event.preventDefault()
+
+  const car = {
+    model: document.getElementById('model').value,
+    brand: document.getElementById('brand').value,
+    year: document.getElementById('year').value,
+    amount: document.getElementById('amount').value
+  }
+
+  console.log('total',totalDeCarros)
+
+  if (onClickEdit) {
+    console.log('after save registry', identificadorQueTaSendoEditado)
+    if (
+      identificadorQueTaSendoEditado ||
+      identificadorQueTaSendoEditado === 0
+    ) {
+      salvarRegistroEditado(car)
+      return
+    }
+  }
+
+  cars = loadCars()
+
+  console.log('after save registry')
+  cars.push(car)
+
+  localStorage.setItem('listaDeCarros', JSON.stringify(cars))
+
+  document.querySelector('form').reset()
+
+  listCars()
+}
+
+const botaoDeAdicionar = document.getElementById('btn')
+if (botaoDeAdicionar) {
+  botaoDeAdicionar.addEventListener('click', addCar)
+}
