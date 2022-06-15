@@ -12,10 +12,10 @@
 body {
   font-size: 1.6rem;
   font-family: 'Kanit', sans-serif;
-  background-image: url(https://images.unsplash.com/photo-1526655805340-274e69922288?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-image: url(https://images.unsplash.com/photo-1519817914152-22d216bb9170?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765);
   background-repeat: no-repeat;
   background-size: cover;
-  color: #a61dc2;
+  color: #e8c456;;
 }
 
 html,
@@ -44,6 +44,7 @@ main,
 footer {
   width: 80%;
   margin: 0% auto;
+  
 }
 
 
@@ -53,26 +54,27 @@ main {
   margin: 0 auto;
   width: 50%;
   display: grid;
-  border: 1px solid #a61dc2;
+  border: 1px solid #e8c456;
   padding: 3rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   padding-inline: 2rem;
+  background-color: rgb(90, 86, 71)
 } 
 
  button {
   
   width : 100%;
-  border: 1px solid #a61dc2;  
+  border: 1px solid #e8c456;;  
   padding: 0.5rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
   font-weight: 500;
   cursor: pointer;
   background-color: black;
-  color: #a61dc2;
+  color: #e8c456;;
 }
 
  button:hover {
@@ -80,7 +82,7 @@ main {
   padding: 0.5rem;
   border-radius: 0.5rem;
   font-weight: 500;
-  background-color: #a61dc2;
+  background-color: #e8c456;;
   color: black;
   border: rgb(50, 46, 51)
 }
@@ -90,7 +92,7 @@ input {
   padding: 0.5rem;
   border-radius: 1rem;
   background-color: black;
-  color: #a61dc2;
+  color: #e8c456;;
 }
 
 select {
@@ -98,7 +100,7 @@ select {
   padding: 0.5rem;
   border-radius: 0.2rem;
   background-color: black;
-  color: #a61dc2;
+  color: #e8c456;;
 }
 
 form {
@@ -125,5 +127,5 @@ ul {
 li {
   margin-top: 1.5rem;
   padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #e8c456;
 }

@@ -44,7 +44,7 @@ const onClickRemove = element => {
   const identificadorASerEncontrado = +element.getAttribute('identificador')
 
   const carros = loadCars()
-  carros.splice(identificadorASerEncontrado, 1)
+  carros.splice(identificadorASerEncontrado, 0)
   console.log('Carros', carros)
   localStorage.setItem('listaDeCarros', JSON.stringify(carros))
   listCars()
@@ -78,17 +78,17 @@ const span = identificador => {
   iconEdit.setAttribute('identificador', `${identificador}`)
   iconEdit.setAttribute('onclick', `onClickEdit(this)`)
   iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
- 
+
   const iconRemove = document.createElement('i')
   iconRemove.setAttribute('class', 'fas fa-trash')
   iconRemove.setAttribute('title', 'Remover')
   iconRemove.setAttribute('identificador', `${identificador}`)
   iconRemove.setAttribute('onclick', `onClickRemove(this)`)
   iconRemove.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-  
-  if (document.getElementById('form-registration')){
-  span.appendChild(iconEdit)
-  span.appendChild(iconRemove)
+
+  if (document.getElementById('form-registration')) {
+    span.appendChild(iconEdit)
+    span.appendChild(iconRemove)
   }
 
   return span
@@ -133,10 +133,32 @@ const addCar = event => {
     amount: document.getElementById('amount').value
   }
 
-  console.log('total',totalDeCarros)
+  cars = loadCars()
+
+  console.log('?????', cars)
+  console.log('?????', cars.length)
+
+  if (totalDeCarros === 0) {
+  if (cars.length) {
+    cars.forEach(item => {
+      totalDeCarros += +item.amount
+    })
+  } else {
+    totalDeCarros = +document.getElementById('amount').value   
+  }
+} else {
+  totalDeCarros += +document.getElementById('amount').value
+}
+  console.log('->', totalDeCarros)
+
+  if (totalDeCarros > 200) {
+    alert(
+      'Não tem mais espaço no estoque, se quiser adicinar mais um carro, libere espaço no estoque '
+    )
+    return
+  }
 
   if (onClickEdit) {
-    console.log('after save registry', identificadorQueTaSendoEditado)
     if (
       identificadorQueTaSendoEditado ||
       identificadorQueTaSendoEditado === 0
@@ -146,9 +168,6 @@ const addCar = event => {
     }
   }
 
-  cars = loadCars()
-
-  console.log('after save registry')
   cars.push(car)
 
   localStorage.setItem('listaDeCarros', JSON.stringify(cars))
