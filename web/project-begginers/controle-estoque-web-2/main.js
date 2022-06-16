@@ -5,11 +5,11 @@ let totalDeCarros = 0
 let identificadorQueTaSendoEditado = null
 
 const loadCars = () => {
-  const itemsJaArmazenados = localStorage.getItem('listaDeCarros',)
+  const itemsJaArmazenados = localStorage.getItem('listaDeCarros')
   return itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
 }
 
-const onClickEdit = element => {
+const onClickadd = element => {
   const identificadorASerEncontrado = element.getAttribute('identificador')
 
   identificadorQueTaSendoEditado = +identificadorASerEncontrado
@@ -31,14 +31,19 @@ const onClickEdit = element => {
       carroEncontrada.amount = carro.amount
     }
   })
-
   document.getElementById('model').value = carroEncontrada.model
   document.getElementById('brand').value = carroEncontrada.brand
   document.getElementById('year').value = carroEncontrada.year
   document.getElementById('amount').value = carroEncontrada.amount
 
+  totalDeCarros += +carroEncontrada.amount
+  localStorage.setItem('total',  JSON.stringify(totalDeCarros))
+  localStorage.getItem('total').value = totalDeCarros
+  
+
   console.log('carroEncontrada', carroEncontrada)
 }
+
 
 const salvarRegistroEditado = registroSendoEditado => {
   const carros = loadCars()
@@ -54,6 +59,7 @@ const salvarRegistroEditado = registroSendoEditado => {
 
   localStorage.setItem('listaDeCarros', JSON.stringify(carrosAtualizados))
 
+
   identificadorQueTaSendoEditado = null
 
   listCars()
@@ -62,15 +68,23 @@ const salvarRegistroEditado = registroSendoEditado => {
 
 const span = identificador => {
   const span = document.createElement('span')
-  const iconEdit = document.createElement('i')
-  iconEdit.setAttribute('class', 'fas fa-edit')
-  iconEdit.setAttribute('title', 'Editar')
-  iconEdit.setAttribute('identificador', `${identificador}`)
-  iconEdit.setAttribute('onclick', `onClickEdit(this)`)
-  iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+  const iconAdd = document.createElement('i')
+  iconAdd.setAttribute('class', 'fas fa-edit')
+  iconAdd.setAttribute('title', 'Editar')
+  iconAdd.setAttribute('identificador', `${identificador}`)
+  iconAdd.setAttribute('onclick', `onClickadd(this)`)
+  iconAdd.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+
+  const iconSubtract = document.createElement('i')
+  iconSubtract.setAttribute('class', 'fas fa-trash')
+  iconSubtract.setAttribute('title', 'Remover')
+  iconSubtract.setAttribute('identificador', `${identificador}`)
+  iconSubtract.setAttribute('onclick', `onClickSubtract(this)`)
+  iconSubtract.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
 
   if (document.getElementById('form-registration')) {
-    span.appendChild(iconEdit)
+    span.appendChild(iconAdd)
+    span.appendChild(iconSubtract)
   }
 
   return span
@@ -120,17 +134,18 @@ const addCar = event => {
   console.log('?????', cars)
   console.log('?????', cars.length)
 
-  if (!totalDeCarros === 0) {
-  if (cars.length) {
-    cars.forEach(item => {
-      totalDeCarros += +item.amount
-    })
+  if (totalDeCarros === 0) {
+    if (cars.length) {
+      cars.forEach(item => {
+        totalDeCarros += +item.amount
+      })
+    } else {
+      totalDeCarros = +document.getElementById('amount').value
+    }
   } else {
-    totalDeCarros = +document.getElementById('amount').value   
+    totalDeCarros += +document.getElementById('amount').value
   }
-} else {
-  totalDeCarros += +document.getElementById('amount').value
-}
+  localStorage.setItem('total', JSON.stringify(totalDeCarros))
 
   console.log('->', totalDeCarros)
 
@@ -141,7 +156,7 @@ const addCar = event => {
     return
   }
 
-  if (onClickEdit) {
+  if (onClickadd) {
     if (
       identificadorQueTaSendoEditado ||
       identificadorQueTaSendoEditado === 0

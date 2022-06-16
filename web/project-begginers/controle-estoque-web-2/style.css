@@ -1,0 +1,131 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #F0005B
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Kanit', sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1519817914152-22d216bb9170?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #e8c456;;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+display: flex;
+justify-content: space-between;
+padding-inline: 5rem;
+padding-top: 1.5rem;
+padding-bottom: 1.5rem;
+}
+
+
+h1, h3 {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header,
+main,
+footer {
+  width: 80%;
+  margin: 0% auto;
+  
+}
+
+
+main {
+  padding: 3rem;
+  margin-top: 2rem;
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+  border: 1px solid #e8c456;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding-inline: 2rem;
+  background-color: rgb(90, 86, 71)
+} 
+
+ button {
+  
+  width : 100%;
+  border: 1px solid #e8c456;;  
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: black;
+  color: #e8c456;;
+}
+
+ button:hover {
+  width : 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  background-color: #e8c456;;
+  color: black;
+  border: rgb(50, 46, 51)
+}
+
+input {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: black;
+  color: #e8c456;;
+}
+
+select {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  background-color: black;
+  color: #e8c456;;
+}
+
+form {
+  margin-top: 2rem;
+  margin: 0 auto;
+  width: 50%;
+  display: grid;
+}
+
+#list-section {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+ul {
+  list-style: none;
+  max-height: 15rem;
+  min-height: 15rem;
+  overflow-y: auto;
+  width: 60%;
+}
+
+li {
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e8c456;
+}
