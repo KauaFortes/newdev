@@ -31,7 +31,7 @@
       <form id="form-registration">
         <label for="Modelo">Modelo do Veiculo</label>
         <input
-          id="model"
+          id="modelo"
           type="text"
           autocomplete="off"
           placeholder="ex: Gol"
@@ -39,14 +39,14 @@
 
         <label for="Marca">marca do Veiculo</label>
         <input
-          id="brand"
+          id="marca"
           type="text"
           autocomplete="off"
           placeholder="ex: volkswagen"
         />
 
         <label for="ano">ano do Veiculo</label>
-        <select name="year" id="year">
+        <select id="ano">
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
@@ -166,11 +166,8 @@
           <option value="1906">1906</option>
           <option value="1905">1905</option>
         </select>
-        <label for="Quantia">Quantidade</label>
-        <input 
-        id="amount" 
-        type="number">
-        <button id="btn">cadastrar</button>
+
+        <button id="botaoDeCadastrar">Cadastrar</button>
       </form>
 
       <a href="index.html">
@@ -178,9 +175,8 @@
       </a>
 
       <a href="movimentacao.html">
-        <button>movimentação de estoque</button>
+        <button id="acessarMovimentacao">movimentação de estoque</button>
       </a>
-
 
       <a href="estoque.html">
         <button>ver estoque</button>

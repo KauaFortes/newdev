@@ -1,181 +1,98 @@
-let cars = []
+function carregarCarros() {
+  let carrosLocalStorage = localStorage.getItem('carrosCadastrados')
 
-let totalDeCarros = 0
+  if (carrosLocalStorage) {
+    return JSON.parse(carrosLocalStorage)
+  } else {
+    localStorage.setItem('carrosCadastrados', JSON.stringify([]))
 
-let identificadorQueTaSendoEditado = null
-
-const loadCars = () => {
-  const itemsJaArmazenados = localStorage.getItem('listaDeCarros')
-  return itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
+    return JSON.parse(localStorage.getItem('carrosCadastrados'))
+  }
 }
 
-const onClickadd = element => {
-  const identificadorASerEncontrado = element.getAttribute('identificador')
+carregarCarros()
 
-  identificadorQueTaSendoEditado = +identificadorASerEncontrado
+function cadastrarVeiculo(event) {
+  event.preventDefault()
 
-  const cars = loadCars()
-  console.log('carregar Carros', cars)
-  let carroEncontrada = {
-    model: '',
-    brand: '',
-    year: '',
-    amount: ''
+  const carroParaCadastrar = {
+    modelo: document.getElementById('modelo').value,
+    ano: document.getElementById('ano').value,
+    marca: document.getElementById('marca').value,
+    quantidade: 0
   }
 
-  cars.forEach((carro, identificador) => {
-    if (identificador === +identificadorASerEncontrado) {
-      carroEncontrada.brand = carro.brand
-      carroEncontrada.model = carro.model
-      carroEncontrada.year = carro.year
-      carroEncontrada.amount = carro.amount
-    }
-  })
-  document.getElementById('model').value = carroEncontrada.model
-  document.getElementById('brand').value = carroEncontrada.brand
-  document.getElementById('year').value = carroEncontrada.year
-  document.getElementById('amount').value = carroEncontrada.amount
+  const carrosJaArmazenados = carregarCarros()
 
-  totalDeCarros += +carroEncontrada.amount
-  localStorage.setItem('total',  JSON.stringify(totalDeCarros))
-  localStorage.getItem('total').value = totalDeCarros
-  
+  carrosJaArmazenados.push(carroParaCadastrar)
 
-  console.log('carroEncontrada', carroEncontrada)
+  localStorage.setItem('carrosCadastrados', JSON.stringify(carrosJaArmazenados))
+
+  document.getElementById('form-registration').reset()
 }
 
+function direcionarParaMovimentacao() {
+  event.preventDefault()
+  window.location.href = 'movimentacao.html'
 
-const salvarRegistroEditado = registroSendoEditado => {
-  const carros = loadCars()
-  const carrosAtualizados = carros.map((carro, index) => {
-    if (identificadorQueTaSendoEditado === index) {
-      carro.model = registroSendoEditado.model
-      carro.brand = registroSendoEditado.brand
-      carro.year = registroSendoEditado.year
-      carro.amount = registroSendoEditado.amount
-    }
-    return carro
-  })
-
-  localStorage.setItem('listaDeCarros', JSON.stringify(carrosAtualizados))
-
-
-  identificadorQueTaSendoEditado = null
-
-  listCars()
-  document.querySelector('form').reset()
+  listarCarrosNaTela()
 }
 
-const span = identificador => {
+const criarSpansPassandoOIdentificadorPorParametro = identificador => {
   const span = document.createElement('span')
-  const iconAdd = document.createElement('i')
-  iconAdd.setAttribute('class', 'fas fa-edit')
-  iconAdd.setAttribute('title', 'Editar')
-  iconAdd.setAttribute('identificador', `${identificador}`)
-  iconAdd.setAttribute('onclick', `onClickadd(this)`)
-  iconAdd.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
+  const iconEdit = document.createElement('i')
+  iconEdit.setAttribute('class', 'fas fa-edit')
+  iconEdit.setAttribute('title', 'Editar')
+  iconEdit.setAttribute('identificador', `${identificador}`)
+  iconEdit.setAttribute('onclick', `onClickEdit(this)`)
+  iconEdit.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
 
-  const iconSubtract = document.createElement('i')
-  iconSubtract.setAttribute('class', 'fas fa-trash')
-  iconSubtract.setAttribute('title', 'Remover')
-  iconSubtract.setAttribute('identificador', `${identificador}`)
-  iconSubtract.setAttribute('onclick', `onClickSubtract(this)`)
-  iconSubtract.setAttribute('style', 'cursor:pointer; margin-inline: 1rem;')
-
-  if (document.getElementById('form-registration')) {
-    span.appendChild(iconAdd)
-    span.appendChild(iconSubtract)
+  if (document.getElementById('salvarMovimentacao')) {
+    span.appendChild(iconEdit)
   }
 
   return span
 }
 
-const listCars = () => {
-  const cars = loadCars()
+function listarCarrosNaTela() {
+  const carrosJaArmazenados = carregarCarros()
 
   let ul = document.querySelector('ul')
+
   if (ul) {
     ul.remove()
   }
 
   ul = document.createElement('ul')
 
-  cars.forEach((item, identificador) => {
+  carrosJaArmazenados.forEach((item, identificador) => {
     const li = document.createElement('li')
-    li.innerHTML = `Modelo: ${item.model} 
-     Marca: ${item.brand}, 
-     Ano: ${item.year},
-     quantidade: ${item.amount}
+    li.innerHTML = `Modelo: ${item.modelo} 
+     Marca: ${item.marca}, 
+     Ano: ${item.ano},
+     quantidade: ${item.quantidade}
      `
 
-    li.appendChild(span(identificador))
+    li.appendChild(criarSpansPassandoOIdentificadorPorParametro(identificador))
     ul.appendChild(li)
   })
-  const seçãoDaLista = document.getElementById('list-section')
-  if (seçãoDaLista) {
-    document.getElementById('list-section').appendChild(ul)
+  const sectionList = document.getElementById('bananana')
+
+  console.log(';;;;; ', sectionList)
+
+  if (sectionList) {
+    document.getElementById('bananana').appendChild(ul)
   }
 }
 
-listCars()
+const botaoDeCadastrar = document.getElementById('botaoDeCadastrar')
 
-const addCar = event => {
-  event.preventDefault()
-
-  const car = {
-    model: document.getElementById('model').value,
-    brand: document.getElementById('brand').value,
-    year: document.getElementById('year').value,
-    amount: document.getElementById('amount').value
-  }
-
-  cars = loadCars()
-
-  console.log('?????', cars)
-  console.log('?????', cars.length)
-
-  if (totalDeCarros === 0) {
-    if (cars.length) {
-      cars.forEach(item => {
-        totalDeCarros += +item.amount
-      })
-    } else {
-      totalDeCarros = +document.getElementById('amount').value
-    }
-  } else {
-    totalDeCarros += +document.getElementById('amount').value
-  }
-  localStorage.setItem('total', JSON.stringify(totalDeCarros))
-
-  console.log('->', totalDeCarros)
-
-  if (totalDeCarros > 200) {
-    alert(
-      'Não tem mais espaço no estoque, se quiser adicinar mais um carro, libere espaço no estoque '
-    )
-    return
-  }
-
-  if (onClickadd) {
-    if (
-      identificadorQueTaSendoEditado ||
-      identificadorQueTaSendoEditado === 0
-    ) {
-      salvarRegistroEditado(car)
-      return
-    }
-  }
-
-  cars.push(car)
-
-  localStorage.setItem('listaDeCarros', JSON.stringify(cars))
-
-  document.querySelector('form').reset()
-
-  listCars()
+if (botaoDeCadastrar) {
+  botaoDeCadastrar.addEventListener('click', cadastrarVeiculo)
 }
 
-const botaoDeAdicionar = document.getElementById('btn')
-if (botaoDeAdicionar) {
-  botaoDeAdicionar.addEventListener('click', addCar)
+const acessarMovimentacao = document.getElementById('acessarMovimentacao')
+
+if (acessarMovimentacao) {
+  acessarMovimentacao.addEventListener('click', direcionarParaMovimentacao)
 }
