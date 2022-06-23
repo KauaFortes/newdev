@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viemport" content="width=device-widthe, inicial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,400;0,600;0,700;1,300;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script
+    src="https://kit.fontawesome.com/c9cc0fd169.js"
+    crossorigin="anonymous"
+  ></script>
+
+    <title>Lista de tarefas a fazer</title>
+  </head>
+  <body>
+    <main class="container">
+
+      <form id="form-message">
+        <label for="fazer">Oque voce tem que fazer?</label>
+        <input id="fazer" type="text" autocomplete="off" placeholder="mandar um salve para seu amigo"/>
+
+
+        <button type="button" id="addButton">Adicionar</button>
+      </form>
+
+      <section id="section-messages">
+        <h2>Tabela de Ha fazeres</h2>
+      </section>
+      <table>
+        <thead>
+          <tr>
+            <th>Ha Fazeres</th>
+            <th>Ja Concluidos</th>
+            <th>Funções</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody-messages">
+
+        </tbody>
+      </table>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

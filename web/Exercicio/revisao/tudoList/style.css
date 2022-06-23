@@ -4,63 +4,81 @@
   box-sizing: border-box;
 }
 
-html, boyd {
+html, body {
   height: 100%;
 }
 
 :root {
-  --primary-color: #2bff64;
-  --bg-color-primary: #2bff64;
+  --primary-color: #367C2B;
+  --bg-color-primary: #367C2B;
   font-size: 62.5%;
 }
 
 body {
   font-size: 1.6rem;
   font-family: 'Fira Code', monospace;
-}
-
-form  {
-  margin-top: 4rem !important;
-  margin: 0 auto;
-  display: grid;
-  width: 50%;
-}
-
-input, button {
-  border: 1px solid #ccc;
-  padding: 0.5rem;
-}
-
-label {
-  margin-top: 1rem;
-}
-
-button {
-  margin-top: 2rem;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  background-color: var(--bg-color-primary);
-  color: white;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-#list-section {
-  margin-top: 4rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 80vh;
+  width: 60rem;
+}
+
+h4 {
+  margin-bottom: 2rem;
+}
+
+/* Input todo */
+#todo {
+  padding: 0.5rem;
+  width: 40rem;
+  height: 3.5rem;
+}
+
+/* Botão adicionar */
+#addToDoButton {
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--bg-color-primary);
+  border-radius: 1rem;
+  color: white;
+  margin-inline: 1rem;
+  margin-top: 0.2rem;
 }
 
 ul {
-  list-style: none;
-  max-height: 28rem;
-  min-height: 28rem;
-  overflow-y: auto;
-  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 li {
-  margin-top: 1.5rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+li input {
+  margin-right: 1rem;
+}
+
+#sectionList {
+  display: flex;
+  margin-top: 3rem;
+}
+
+.isDone {
+  text-decoration: line-through;
+}
+
+.fa-trash {
+  color: red;
+  margin-left: 1rem;
+  cursor: pointer;
 }

@@ -4,32 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
   
-  <title>List from array</title>
+  <title>Lista de Tarefas</title>
 </head>
 <body>
-  <form>
-    <label for="fazer">oque fazer</label>
-    <input id="fazer" type="text">
 
+  <main>
+    <h4>Lista de tarefas a fazer</h4>
 
-    <input type="checkbox" name="" id="lista">
-    <button id="btn">
-      Adicionar
-    </button>
-  </form>
+    <section>
+      <input type="text" id="todo">
+      <button id="addToDoButton">
+        <i class="fas fa-plus" title="Adicionar"></i>
+      </button>
+    </section>
 
-  <section id="list-section">
-
-  </section>
+    <section id="sectionList">
+    </section>
+  </main>
   
-  <script src="https://kit.fontawesome.com/d1a9aca78a.js" crossorigin="anonymous"></script>
   <script src="main.js"></script>
+  <script src="https://kit.fontawesome.com/d1a9aca78a.js" crossorigin="anonymous"></script>
 </body>
 </html>
