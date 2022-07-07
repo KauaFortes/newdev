@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta name="viemport" content="width=device-widthe, inicial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,400;0,600;0,700;1,300;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script
+    src="https://kit.fontawesome.com/c9cc0fd169.js"
+    crossorigin="anonymous"
+  ></script>
+
+    <title>lista de mensagens</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Adicionar Mensagem</h1>
+
+      <form id="form-message">
+        <label for="from">De:</label>
+        <input id="from" type="text" autocomplete="off" placeholder="remetente"/>
+
+        <label for="to">Para:</label>
+        <input id="to" type="text" autocomplete="off" placeholder="destinatario" />
+
+        <label for="message">Mensagem</label>
+        <textarea id="message" cols="50" rows="6" placeholder="mensagem"></textarea>
+
+        <button type="button" id="addButton">Adicionar</button>
+      </form>
+
+      <section id="section-messages">
+        <h2>mensagens:</h2>
+      </section>
+      <table>
+        <thead>
+          <tr>
+            <th>de</th>
+            <th>Para</th>
+            <th>Mensagem</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <tbody id="tbody-messages">
+
+        </tbody>
+      </table>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>

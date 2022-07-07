@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+boyd {
+  height: 100%;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Fira Code', monospace;
+  background-image: linear-gradient(
+    to right top,
+    #000000,
+    #3b0825,
+    #690054,
+    #8d0096,
+    #9612eb
+  );
+  background-attachment: fixed;
+}
+header {
+  margin-bottom: 10rem;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0;
+  margin-left: 3rem;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+}
+form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid rgb(111, 111, 228);
+  padding: 15rem;
+  border-radius: 5rem;
+  background-color: white;
+}
+input {
+  width: 35rem;
+  height: 3rem;
+}
+button {
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  font-size: 2rem;
+  margin-top: 3rem;
+  width: 35rem;
+  height: 3rem;
+  background-image: linear-gradient(
+    to right top,
+    #28c0c0,
+    #00d0b1,
+    #15dd92,
+    #67e663,
+    #a8eb12
+  );
+  border: 1px solid;
+  border-radius: 2rem;
+}
+button:hover {
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: 'Fira Code', monospace;
+  margin-top: 3rem;
+  width: 35rem;
+  height: 3rem;
+
+  background-image: linear-gradient(
+    to right top,
+    #28b3c0,
+    #009fda,
+    #0085f8,
+    #0061ff,
+    #1b12eb
+  );
+}
+label {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: black;
+  margin-top: 3rem;
+  margin-left: 0;
+  width: 35rem;
+  height: 3rem;
+  background-image: linear-gradient(
+    to right top,
+    #28c0c0,
+    #00d0b1,
+    #15dd92,
+    #67e663,
+    #a8eb12
+  );
+  border: 1px solid;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a:hover {
+  font-size: 2rem;
+  margin-top: 3rem;
+  width: 35rem;
+  height: 3rem;
+
+  background-image: linear-gradient(
+    to right top,
+    #28b3c0,
+    #009fda,
+    #0085f8,
+    #0061ff,
+    #1b12eb
+  );
+}
+h3 {
+  margin-bottom: 3rem;
+}

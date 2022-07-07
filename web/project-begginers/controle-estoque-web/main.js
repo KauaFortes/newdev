@@ -5,8 +5,8 @@ let totalDeCarros = 0
 let identificadorQueTaSendoEditado = null
 
 const loadCars = () => {
-  const itemsJaArmazenados = localStorage.getItem('listaDeCarros',)
-  return itemsJaArmazenados ? JSON.parse(itemsJaArmazenados) : []
+  const carrosJaArmazenados = localStorage.getItem('listaDeCarros',)
+  return carrosJaArmazenados ? JSON.parse(carrosJaArmazenados) : []
 }
 
 const onClickEdit = element => {

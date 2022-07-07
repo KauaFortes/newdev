@@ -1,12 +1,13 @@
 const http = require('http')
 const URL = require('url')
 const fs = require('fs')
-const recipes = require('./recipes.json')
 const path = require('path')
+const recipes = require('./recipes.json')
 
 const getRecipes = (request, response) => {
   
-  let {name, ingre, remove} = URL.parse(request.url, true).query
+  if (request.url === '/receitas') {
+    let {name, ingre, remove} = URL.parse(request.url, true).query
   
   if (ingre) {
   ingre = ingre.split(',')
@@ -47,7 +48,9 @@ const getRecipes = (request, response) => {
     )
   } else {
     response.end(JSON.stringify(recipes))
-  }
+  }}
+
+  
 }
 const server = http.createServer(getRecipes)
 
