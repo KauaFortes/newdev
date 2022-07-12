@@ -1,12 +1,26 @@
-exports.findAll = (request, response) => {
-  const query = request.query
-  console.log('Query strign authors', query)
-  return response.status(200).send('está no authors no metodo get')
+const database = require('../databases/knex')
+
+exports.findAll = async (request, response) => {
+
+try {
+  const sql = await database.select('*').from('authors')
+
+  console.log('sqle ->', sql)
+  return response.status(200).send({authors: sql})
+} catch (error) {
+  return response.status(500).send({ error: error?.message || e})
+}
 }
 
-exports.create = (request, response) => {
-  console.log('recebendo dados', request.body)
-  return response.status(200).send('está no authors no metodo POST')
+exports.create = async (request, response) => {
+ try {
+  await database('authors').insert(request.body)
+  return response.status(200).send({
+    status: 'success'
+  })
+ }  catch (error) {
+  return response.status(500).send({ error: error?.message || e})
+ }
 }
 
 exports.getById = (request, response) => {
