@@ -17,7 +17,6 @@ routes.post('/authors', AuthorController.create)
 routes.get('/authors/:id', AuthorController.getById)
 routes.delete('/authors/:id', AuthorController.deleteById)
 routes.put('/authors/:id', AuthorController.put)
-routes.patch('/authors/:id', AuthorController.patch)
 
 // rotas de livros
 routes.get('/books', BooksController.findAllBooks)
@@ -26,7 +25,7 @@ routes.post('/books', BooksController.createBooks)
 routes.get('/books/:id', BooksController.getByIdBooks)
 routes.delete('/books/:id', BooksController.deleteByIdBooks)
 routes.put('/books/:id', BooksController.putBooks)
-routes.patch('/books/:id', BooksController.patchBooks)
+
 
 
 
