@@ -4,6 +4,12 @@ module.exports = {
     connection: {
       filename: 'dev.sqlite3'
     },
+    pool: {
+      afterCreate: function (connection, cb) {
+        console.log('executando after create database')
+        connection.run('PRAGMA foreing_keys = ON', cb)
+      }
+    },
     useNullasDefailt: true,
     migrations: {
       directory: __dirname + '/SRC/databases/migrations'

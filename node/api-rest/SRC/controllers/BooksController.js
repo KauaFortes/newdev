@@ -3,12 +3,22 @@ const logger = require('../utils/logger')
 
 exports.findAllBooks = async (request, response) => {
   try {
-    const sql = await database.select('*').from('bookcase')
+    const sql = await database
+    .select(
+      ['bookcase.id', 'bookcase.nameBook', 'authors.name as author Name']
+    )
+    .from('bookcase')
+    .innerJoin('authors', 'authors.id', 'bookcase.authorID')
+
+    sql.forEach(author =>{
+      console.log('->>', author['author Name'])
+      // camelCase
+    })
   
     console.log('sqle ->', sql)
     return response.status(200).send({bookcase: sql})
   } catch (error) {
-    logger(error.nessage)
+    logger(error.message)
     return response.status(500).send({ error: error?.message || e})
   }
 }
@@ -20,7 +30,7 @@ exports.createBooks = async (request, response) => {
       status: 'success'
     })
    }  catch (error) {
-    logger(error.nessage)
+    logger(error.message)
     return response.status(500).send({ error: error?.message || e})
    }
 }
@@ -43,7 +53,7 @@ exports.getByIdBooks = async (request, response) => {
       .status(200)
       .send({ data: previousBooks });
   } catch (error) {
-    logger(error.nessage)
+    logger(error.message)
     return response.status(500).send({ error: error?.message || e });
   }
 }
@@ -67,13 +77,13 @@ exports.putBooks = async (request, response) => {
     console.log('author nextBooks ===', nextBooks)
   
     await database
-    .update({name: nextBooks.name})
+    .update({nameBook: nextBooks.nameBook})
     .from('bookcase')
     .where({id: previousBooks.id})
 
   return response.status(200).send({ status: 'Registro atualizado com sucesso', data: nextBooks})
   } catch (error) { // tratamento de exceção,trata os erros ocorridos
-    logger(error.nessage)
+    logger(error.message)
     return response.status(500).send({error: error?.message || e})
   }
 }
@@ -102,7 +112,7 @@ exports.deleteByIdBooks = async (request, response) => {
 
     return response.status(200).send({ status: 'Registro deletado com sucesso', data: previousBooks})
   } catch (error) {
-    logger(error.nessage)
+    logger(error.message)
     return response.status(500).send({error: error?.message || e})
   }
 }

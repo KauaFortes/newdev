@@ -5,8 +5,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('bookcase', function(table) {
     table.increments()
-    table.string('name')
-    table.string('writer')
+    table.string('nameBook')
   })
 };
 

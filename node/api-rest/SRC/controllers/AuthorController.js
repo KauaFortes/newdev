@@ -8,7 +8,7 @@ try {
   console.log('sqle ->', sql)
   return response.status(200).send({authors: sql})
 } catch (error) {
-  logger(error.nessage)
+  logger(error.message)
   return response.status(500).send({ error: error?.message || e})
 }
 }
@@ -20,6 +20,7 @@ exports.create = async (request, response) => {
     status: 'success'
   })
  }  catch (error) {
+  logger(error.message)
   return response.status(500).send({ error: error?.message || e})
  }
 }
@@ -42,7 +43,7 @@ exports.getById = async (request, response) => {
       .status(200)
       .send({ data: previousAuthor });
   } catch (error) {// tratamento de exceção, trata os erros que ocorrem
-    
+    logger(error.message)
     return response.status(500).send({ error: error?.message || e });
   }
 }
@@ -78,6 +79,7 @@ exports.put = async (request, response) => {
     // avisar o cliente que atualizamos o registro e retornar o registro atualizado
   return response.status(200).send({ status: 'Registro atualizado com sucesso', data: nextAuthor})
   } catch (error) { // tratamento de exceção,trata os erros ocorridos
+    logger(error.message)
     return response.status(500).send({error: error?.message || e})
   }
 }
@@ -105,7 +107,8 @@ exports.deleteById = async (request, response) => {
     .where({id: previosAuthor.id})
 
     return response.status(200).send({ status: 'Registro deletado com sucesso', data: previosAuthor})
-  } catch (e) {
+  } catch (error) {
+    logger(error.message)
     return response.status(500).send({error: error?.message || e})
   }
 }
