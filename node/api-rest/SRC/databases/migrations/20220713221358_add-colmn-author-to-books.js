@@ -8,9 +8,11 @@ exports.up = function(knex) {
     integer('authorID') // tipo do campo (nome do campo)
     .unsigned() // precisa sernumero inteiro
     .notNullable() // não pode ser nulo
-    .references('id') // referencia do coampo da tavela pai
+    .references('id') // referencia do coampo da tabela pai
     .inTable('authors') // nome da tabela pai
-    .onDelete('CASCADE') // executa um comando quando o registro pai for removido 
+    .onDelete('CASCADE') // executa um comando quando o registro pai for removido
+    table.string('name') //
+    table.integer('outrocampo')
   })
   
 };

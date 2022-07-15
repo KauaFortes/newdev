@@ -12,8 +12,7 @@ routes.get('/', indexController.index)
 // rotas autores
 routes.get('/authors', AuthorController.findAll)
 routes.post('/authors', AuthorController.create)
-
-// rotas 
+ 
 routes.get('/authors/:id', AuthorController.getById)
 routes.delete('/authors/:id', AuthorController.deleteById)
 routes.put('/authors/:id', AuthorController.put)
