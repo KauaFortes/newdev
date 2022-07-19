@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
  exports.up = async function(knex) {
-  await knex.schema.createTable('instructor', function(t) {
+  await knex.schema.createTable('instructors', function(t) {
     t.increments();
     t.string('fullName');
     t.string('avatarUrl');
@@ -24,7 +24,7 @@
       .unsigned()
       .notNullable()
       .references('id')
-      .inTable('instructor')
+      .inTable('instructors')
       .onDelete('CASCADE');
     t.integer('courseId')
       .unsigned()
@@ -39,6 +39,11 @@
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
-exports.down = function(knex) {
-  
+exports.down = async function(knex) {
+ await knex.schema.dropTable('lessons');
+ await knex.schema.dropTable('courses');
+ return knex.schema.dropTable('instructors');
 };
+
+//tenho que fazer tres tabelas separadas no codigo real
+

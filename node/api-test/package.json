@@ -2,6 +2,7 @@
   "name": "api-test",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "npx nodemon src/server.js"
