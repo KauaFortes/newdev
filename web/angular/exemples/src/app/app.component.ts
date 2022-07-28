@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   fullName: string[] = ['Kauã', 'fernando', 'bruno']
   link1: string = 'https://youtu.be/drKbxZi-okg'
   link2: string = 'https://www.google.com'

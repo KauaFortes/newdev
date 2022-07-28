@@ -1,0 +1,10 @@
+<div class="cardList">
+  <ul>
+    <li *ngFor="let item of listParam; let indexOfelement=index">
+      {{item}}
+      <button (click)="remove(indexOfelement)" class="btn btn-outline-danger">
+        remover
+      </button>
+    </li>
+  </ul>
+</div>
