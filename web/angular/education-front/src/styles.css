@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* Default theme. ~960B */
+@import '~@vime/core/themes/default.css';
+
+/* Optional light theme (extends default). ~400B */
+@import '~@vime/core/themes/light.css';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  color: #e1e1e6 !important;
+  background-color: #1b1d24 !important
+}

@@ -1,0 +1,23 @@
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.date-format {
+  color: #8d8d99;
+}
+
+.car-lesson {
+  border: 1px solid #4b4b4b
+}
+
+.span-type {
+  padding-top: 0,125rem;
+  padding-bottom: 0,125rem;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #00b37e;
+}
+
+strong {
+  color: #c4c4cc;
+}
