@@ -2,10 +2,9 @@
    <span class="d-block pb-3 mb-3">Cronograma de aulas</span>
 
    <div class="d-flex flex-column gap-4">
-    <app-lesson class=""></app-lesson>
-    <app-lesson class=""></app-lesson>
-    <app-lesson class=""></app-lesson>
-    <app-lesson class=""></app-lesson>
-    <app-lesson class=""></app-lesson>
+    <app-lesson 
+    [lessonId]="lesson.id"
+    [title]="lesson.title"
+    *ngFor="let lesson of lessons"></app-lesson>
    </div>
 </aside>

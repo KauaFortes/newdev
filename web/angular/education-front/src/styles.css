@@ -13,3 +13,49 @@ body {
   color: #e1e1e6 !important;
   background-color: #1b1d24 !important
 }
+
+a {
+  color: inherit !important;
+  text-decoration: initial !important;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.front-bold {
+  font-weight: bold !important;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar -track {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: #555;
+}
+

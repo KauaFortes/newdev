@@ -1,4 +1,4 @@
-<div class="cursor-pointer">
+<div class="cursor-pointer" (click)="onClickLesson(lessonId)">
   <span class="date-format">
     28/07/2022
   </span>
@@ -15,7 +15,7 @@
     </header>
 
     <strong class="d-block mt-3">
-      Aula de Logica de Programação
+      {{lessonId}} - {{title}}
     </strong>
   </div>
 </div>
