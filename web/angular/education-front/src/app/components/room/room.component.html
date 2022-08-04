@@ -1,38 +1,47 @@
 <div class="flex-grow-1">
   <div class="d-flex justify-center flex-column">
-    <div class="container-video h-100 w-100 ">
-     <vm-youtube
-     cookies="true"
-     videoId={{lessonParam.videoId}}></vm-youtube>
+    <div class="container-video h-100 w-100">
+      <vm-youtube
+        cookies="true"
+        videoId="{{ lessonParam.videoId }}"
+      ></vm-youtube>
     </div>
   </div>
 
   <div class="p-4 mx-auto">
     <section class="d-flex justify-content-start gap-4">
       <div class="flex-grow-1">
-        <h1>{{lessonParam?.title}}</h1>
+        <h1>{{ lessonParam?.title }}</h1>
 
-        <a href="{{lessonParam?.videoId}}"></a>
+        <a href="{{ lessonParam?.videoId }}"></a>
 
-        <p>{{lessonParam?.description}}</p> 
+        <p>{{ lessonParam?.description }}</p>
 
         <div class="d-flex align-items-center gap-2 mt-3">
           <img
-          class="rounded-5 border"
-          width="50"
-          height="50"
-          src="{{lessonParam?.instructor.avatarUrl}}" alt="">
+            class="rounded-5 border"
+            width="50"
+            height="50"
+            src="{{ lessonParam?.instructor.avatarUrl }}"
+            alt=""
+          />
           <div class="">
-            <strong>{{lessonParam?.instructor.fullName}}</strong>
-          </div>  
+            <strong>{{ lessonParam?.instructor.fullName }}</strong>
+          </div>
         </div>
         <div class="d-flex flex-column gap-4">
-          <a href="#" class="p-4 text-sm bg-green flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors">
+          <a
+            href="#"
+            class="p-4 text-sm bg-green flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors"
+          >
             <i class="fab fa-discord"></i>
             Comunidade do discord
           </a>
-  
-          <a href="#" class="btn-challenge p-4 text-sm border d-flex aligm-item-center rounded font-bold uppercase gap-2 justify-content-center transition-colors">
+
+          <a
+            href="#"
+            class="btn-challenge p-4 text-sm border d-flex aligm-item-center rounded font-bold uppercase gap-2 justify-content-center transition-colors"
+          >
             <i class="fas fa-bolt"></i>
             Acesse o desafio
           </a>

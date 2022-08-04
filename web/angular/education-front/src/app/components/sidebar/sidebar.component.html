@@ -1,11 +1,12 @@
 <aside class="p-3">
-   <span class="d-block pb-3 mb-3">Cronograma de aulas</span>
+  <span class="d-block pb-3 mb-3">Cronograma de aulas</span>
 
-   <div class="d-flex flex-column gap-4">
-    <app-lesson 
-    (getLessonEvent)="populateLesson($event)"
-    [lessonId]="lesson.id"
-    [title]="lesson.title"
-    *ngFor="let lesson of lessons"></app-lesson>
-   </div>
+  <div class="d-flex flex-column gap-4">
+    <app-lesson
+      (getLessonEvent)="populateLesson($event)"
+      [lessonId]="lesson.id"
+      [title]="lesson.title"
+      *ngFor="let lesson of lessons"
+    ></app-lesson>
+  </div>
 </aside>

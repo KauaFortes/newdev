@@ -11,6 +11,7 @@ export class CourseComponent implements OnInit {
   course: CourseResponseType
   lessonToShow: any
 
+
   constructor(courseService: CourseService) { 
     this.courseService = courseService
     this.course = {} as CourseResponseType

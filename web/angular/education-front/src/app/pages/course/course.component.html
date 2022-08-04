@@ -1,28 +1,34 @@
 <div class="d-flex flex-column h-100">
   <app-header></app-header>
 
-  <main class="d-flex ">
-    <app-room 
-    *ngIf="lessonToShow; else welcomeToCourse"
-    [lessonParam]="lessonToShow"
-    class="flex-grow-1"
+  <main class="d-flex">
+    <app-room
+      *ngIf="lessonToShow; else welcomeToCourse"
+      [lessonParam]="lessonToShow"
+      class="flex-grow-1"
     ></app-room>
 
     <ng-template #welcomeToCourse>
-      <div class="flex-grow-1 ">
-        <h1>Bem vindo ao NewDev|angular JS </h1>
+      <div class="flex-grow-1">
+        <h1>Bem vindo ao NewDev|angular JS</h1>
         <h2>Oque nós somos?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, molestiae. Laboriosam similique officiis aliquid amet atque numquam totam a qui, et sit. Assumenda sit vero reprehenderit nisi. Similique, eligendi facilis.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+          molestiae. Laboriosam similique officiis aliquid amet atque numquam
+          totam a qui, et sit. Assumenda sit vero reprehenderit nisi. Similique,
+          eligendi facilis.
+        </p>
         <h2>Como Assistir ha uma aula</h2>
-        <p>para assistir a uma aula é simples.
-           é preciso selecionar uma das aulas ao lado para a aula desejada ser exibida na tela e começar a estudar!!
+        <p>
+          para assistir a uma aula é simples. é preciso selecionar uma das aulas
+          ao lado para a aula desejada ser exibida na tela e começar a estudar!!
         </p>
       </div>
     </ng-template>
-    
 
-    <app-sidebar 
-    (populateLessonEvent)="setLessonToShow($event)"
-    [lessons]="course.lessons" ></app-sidebar>
+    <app-sidebar
+      (populateLessonEvent)="setLessonToShow($event)"
+      [lessons]="course.lessons"
+    ></app-sidebar>
   </main>
 </div>

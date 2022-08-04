@@ -12,6 +12,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 import { VimeModule } from '@vime/angular';
 import { HomeComponent } from './pages/home/home.component';
+import { CoursesRoomComponent } from './components/courses-room/courses-room.component';
+import { CoursesCardComponent } from './components/courses-card/courses-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HomeComponent } from './pages/home/home.component';
     LessonComponent,
     RoomComponent,
     SidebarComponent,
-    HomeComponent
+    HomeComponent,
+    CoursesRoomComponent,
+    CoursesCardComponent,
   ],
   imports: [
     BrowserModule,

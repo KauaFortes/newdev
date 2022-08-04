@@ -1,6 +1,4 @@
-main {
-  flex: 1 1 0%;
-}
 div {
   background-color: #042326;
+  border: 1px solid #00b37e;
 }

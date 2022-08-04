@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CourseResponseType, CourseService } from 'src/app/course.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-courses-room',
+  templateUrl: './courses-room.component.html',
+  styleUrls: ['./courses-room.component.css']
 })
-export class HomeComponent implements OnInit {
+export class CoursesRoomComponent implements OnInit {
   courseService: CourseService
   courses!: CourseResponseType[]
   
