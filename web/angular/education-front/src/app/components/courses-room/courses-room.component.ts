@@ -17,7 +17,7 @@ export class CoursesRoomComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.courses = await this.courseService.getCourse()
+    this.courses = await this.courseService.getCourses()
 
     console.log(' ?',this.courses)
   }

@@ -14,6 +14,8 @@ import { VimeModule } from '@vime/angular';
 import { HomeComponent } from './pages/home/home.component';
 import { CoursesRoomComponent } from './components/courses-room/courses-room.component';
 import { CoursesCardComponent } from './components/courses-card/courses-card.component';
+import { PlayerComponent } from './components/player/player.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { CoursesCardComponent } from './components/courses-card/courses-card.com
     HomeComponent,
     CoursesRoomComponent,
     CoursesCardComponent,
+    PlayerComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
